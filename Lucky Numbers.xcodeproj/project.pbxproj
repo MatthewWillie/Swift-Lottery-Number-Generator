@@ -1,0 +1,522 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		AA1E87D029401EEC0080C276 /* InfoButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA1E87CF29401EEC0080C276 /* InfoButtonView.swift */; };
+		AA1E87D229401F210080C276 /* FavoritesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA1E87D129401F210080C276 /* FavoritesView.swift */; };
+		AA1E87D429401F750080C276 /* HeartsAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA1E87D329401F750080C276 /* HeartsAnimation.swift */; };
+		AA1E87D7294020DE0080C276 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA1E87D6294020DE0080C276 /* HomeView.swift */; };
+		AA98F43A29396FA600117465 /* ball_drop.json in Resources */ = {isa = PBXBuildFile; fileRef = AA98F43929396FA600117465 /* ball_drop.json */; };
+		AA98F43C29400F0A00117465 /* Modifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA98F43B29400F0A00117465 /* Modifiers.swift */; };
+		AA98F43E2940102E00117465 /* BallDrop_Observables.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA98F43D2940102E00117465 /* BallDrop_Observables.swift */; };
+		AA98F4402940118B00117465 /* Identifiable_Items.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA98F43F2940118B00117465 /* Identifiable_Items.swift */; };
+		AA98F4422940128900117465 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA98F4412940128900117465 /* Extensions.swift */; };
+		AA98F444294017ED00117465 /* Custom_Buttons.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA98F443294017ED00117465 /* Custom_Buttons.swift */; };
+		AAA120B029287ACC005FD5C8 /* Coin_View.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA120AF29287ACC005FD5C8 /* Coin_View.swift */; };
+		AAA9C441292194E100918808 /* Lucky_NumbersApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA9C440292194E100918808 /* Lucky_NumbersApp.swift */; };
+		AAA9C443292194E100918808 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA9C442292194E100918808 /* ContentView.swift */; };
+		AAA9C445292194E200918808 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AAA9C444292194E200918808 /* Assets.xcassets */; };
+		AAA9C448292194E200918808 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AAA9C447292194E200918808 /* Preview Assets.xcassets */; };
+		AAA9C450292195CC00918808 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = AAA9C44F292195CC00918808 /* Lottie */; };
+		AACC0AE629358F560039AFF1 /* LuckyModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = AACC0AE429358F560039AFF1 /* LuckyModel.xcdatamodeld */; };
+		AADCDEE9294BDC7E000573A6 /* load_balls.json in Resources */ = {isa = PBXBuildFile; fileRef = AADCDEE8294BDC7E000573A6 /* load_balls.json */; };
+		AAED228C2921969100AFE937 /* BuildLottie.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAED228B2921969100AFE937 /* BuildLottie.swift */; };
+		AAED229229219A1F00AFE937 /* lotto_balls.json in Resources */ = {isa = PBXBuildFile; fileRef = AAED229129219A1F00AFE937 /* lotto_balls.json */; };
+		AAED22952921A79400AFE937 /* Luckies_Logo.json in Resources */ = {isa = PBXBuildFile; fileRef = AAED22942921A79400AFE937 /* Luckies_Logo.json */; };
+		AAED22972921A88A00AFE937 /* BallDropButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAED22962921A88A00AFE937 /* BallDropButton.swift */; };
+		AAED22992921A8DC00AFE937 /* RandomGen.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAED22982921A8DC00AFE937 /* RandomGen.swift */; };
+		AAED229B2921A93000AFE937 /* OnBoard.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAED229A2921A93000AFE937 /* OnBoard.swift */; };
+		AAED229D2921AB3300AFE937 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAED229C2921AB3300AFE937 /* SceneDelegate.swift */; };
+		AAED229F2921C68600AFE937 /* LaunchScreenStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAED229E2921C68600AFE937 /* LaunchScreenStep.swift */; };
+		AAED22A12921C6A700AFE937 /* LaunchScreenStateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAED22A02921C6A700AFE937 /* LaunchScreenStateManager.swift */; };
+		AAED22A32921E79600AFE937 /* Move_Text.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAED22A22921E79600AFE937 /* Move_Text.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		AA1E87CF29401EEC0080C276 /* InfoButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoButtonView.swift; sourceTree = "<group>"; };
+		AA1E87D129401F210080C276 /* FavoritesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesView.swift; sourceTree = "<group>"; };
+		AA1E87D329401F750080C276 /* HeartsAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeartsAnimation.swift; sourceTree = "<group>"; };
+		AA1E87D6294020DE0080C276 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		AA98F43929396FA600117465 /* ball_drop.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = ball_drop.json; sourceTree = "<group>"; };
+		AA98F43B29400F0A00117465 /* Modifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Modifiers.swift; sourceTree = "<group>"; };
+		AA98F43D2940102E00117465 /* BallDrop_Observables.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BallDrop_Observables.swift; sourceTree = "<group>"; };
+		AA98F43F2940118B00117465 /* Identifiable_Items.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Identifiable_Items.swift; sourceTree = "<group>"; };
+		AA98F4412940128900117465 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		AA98F443294017ED00117465 /* Custom_Buttons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Custom_Buttons.swift; sourceTree = "<group>"; };
+		AAA120AF29287ACC005FD5C8 /* Coin_View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coin_View.swift; sourceTree = "<group>"; };
+		AAA9C43D292194E100918808 /* Lucky Numbers.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Lucky Numbers.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		AAA9C440292194E100918808 /* Lucky_NumbersApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lucky_NumbersApp.swift; sourceTree = "<group>"; };
+		AAA9C442292194E100918808 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		AAA9C444292194E200918808 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		AAA9C447292194E200918808 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		AACC0AE529358F560039AFF1 /* LuckyModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = LuckyModel.xcdatamodel; sourceTree = "<group>"; };
+		AADCDEE8294BDC7E000573A6 /* load_balls.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = load_balls.json; sourceTree = "<group>"; };
+		AAED228B2921969100AFE937 /* BuildLottie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildLottie.swift; sourceTree = "<group>"; };
+		AAED229129219A1F00AFE937 /* lotto_balls.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = lotto_balls.json; sourceTree = "<group>"; };
+		AAED229329219B9A00AFE937 /* Lucky-Numbers-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Lucky-Numbers-Info.plist"; sourceTree = SOURCE_ROOT; };
+		AAED22942921A79400AFE937 /* Luckies_Logo.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Luckies_Logo.json; sourceTree = "<group>"; };
+		AAED22962921A88A00AFE937 /* BallDropButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BallDropButton.swift; sourceTree = "<group>"; };
+		AAED22982921A8DC00AFE937 /* RandomGen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomGen.swift; sourceTree = "<group>"; };
+		AAED229A2921A93000AFE937 /* OnBoard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoard.swift; sourceTree = "<group>"; };
+		AAED229C2921AB3300AFE937 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		AAED229E2921C68600AFE937 /* LaunchScreenStep.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreenStep.swift; sourceTree = "<group>"; };
+		AAED22A02921C6A700AFE937 /* LaunchScreenStateManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreenStateManager.swift; sourceTree = "<group>"; };
+		AAED22A22921E79600AFE937 /* Move_Text.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Move_Text.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		AAA9C43A292194E100918808 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AAA9C450292195CC00918808 /* Lottie in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		AA1E87D5294020700080C276 /* Main_Views */ = {
+			isa = PBXGroup;
+			children = (
+				AAED22A22921E79600AFE937 /* Move_Text.swift */,
+				AAA120AF29287ACC005FD5C8 /* Coin_View.swift */,
+				AA1E87CF29401EEC0080C276 /* InfoButtonView.swift */,
+				AA1E87D129401F210080C276 /* FavoritesView.swift */,
+				AA1E87D6294020DE0080C276 /* HomeView.swift */,
+				AAED229A2921A93000AFE937 /* OnBoard.swift */,
+				AA98F443294017ED00117465 /* Custom_Buttons.swift */,
+				AA1E87D329401F750080C276 /* HeartsAnimation.swift */,
+			);
+			path = Main_Views;
+			sourceTree = "<group>";
+		};
+		AA1E87D82940213E0080C276 /* LaunchViews */ = {
+			isa = PBXGroup;
+			children = (
+				AAA9C442292194E100918808 /* ContentView.swift */,
+				AAED229E2921C68600AFE937 /* LaunchScreenStep.swift */,
+				AAED22A02921C6A700AFE937 /* LaunchScreenStateManager.swift */,
+			);
+			path = LaunchViews;
+			sourceTree = "<group>";
+		};
+		AA1E87D9294021DA0080C276 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				AAED22982921A8DC00AFE937 /* RandomGen.swift */,
+				AAED228B2921969100AFE937 /* BuildLottie.swift */,
+				AA98F43D2940102E00117465 /* BallDrop_Observables.swift */,
+				AA98F4412940128900117465 /* Extensions.swift */,
+				AA98F43B29400F0A00117465 /* Modifiers.swift */,
+				AA98F43F2940118B00117465 /* Identifiable_Items.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		AAA9C434292194E100918808 = {
+			isa = PBXGroup;
+			children = (
+				AAED229129219A1F00AFE937 /* lotto_balls.json */,
+				AADCDEE8294BDC7E000573A6 /* load_balls.json */,
+				AAED22942921A79400AFE937 /* Luckies_Logo.json */,
+				AA98F43929396FA600117465 /* ball_drop.json */,
+				AAA9C43F292194E100918808 /* Lucky Numbers */,
+				AAA9C43E292194E100918808 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		AAA9C43E292194E100918808 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				AAA9C43D292194E100918808 /* Lucky Numbers.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		AAA9C43F292194E100918808 /* Lucky Numbers */ = {
+			isa = PBXGroup;
+			children = (
+				AAED229C2921AB3300AFE937 /* SceneDelegate.swift */,
+				AAA9C440292194E100918808 /* Lucky_NumbersApp.swift */,
+				AAED22962921A88A00AFE937 /* BallDropButton.swift */,
+				AA1E87D82940213E0080C276 /* LaunchViews */,
+				AA1E87D5294020700080C276 /* Main_Views */,
+				AA1E87D9294021DA0080C276 /* Utilities */,
+				AAED229329219B9A00AFE937 /* Lucky-Numbers-Info.plist */,
+				AAA9C446292194E200918808 /* Preview Content */,
+				AAA9C444292194E200918808 /* Assets.xcassets */,
+				AACC0AE429358F560039AFF1 /* LuckyModel.xcdatamodeld */,
+			);
+			path = "Lucky Numbers";
+			sourceTree = "<group>";
+		};
+		AAA9C446292194E200918808 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				AAA9C447292194E200918808 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		AAA9C43C292194E100918808 /* Lucky Numbers */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AAA9C44B292194E200918808 /* Build configuration list for PBXNativeTarget "Lucky Numbers" */;
+			buildPhases = (
+				AAA9C439292194E100918808 /* Sources */,
+				AAA9C43A292194E100918808 /* Frameworks */,
+				AAA9C43B292194E100918808 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Lucky Numbers";
+			packageProductDependencies = (
+				AAA9C44F292195CC00918808 /* Lottie */,
+			);
+			productName = "Lucky Numbers";
+			productReference = AAA9C43D292194E100918808 /* Lucky Numbers.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		AAA9C435292194E100918808 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1410;
+				LastUpgradeCheck = 1420;
+				TargetAttributes = {
+					AAA9C43C292194E100918808 = {
+						CreatedOnToolsVersion = 14.1;
+					};
+				};
+			};
+			buildConfigurationList = AAA9C438292194E100918808 /* Build configuration list for PBXProject "Lucky Numbers" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = AAA9C434292194E100918808;
+			packageReferences = (
+				AAA9C44E292195CC00918808 /* XCRemoteSwiftPackageReference "lottie-ios" */,
+			);
+			productRefGroup = AAA9C43E292194E100918808 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				AAA9C43C292194E100918808 /* Lucky Numbers */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		AAA9C43B292194E100918808 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AADCDEE9294BDC7E000573A6 /* load_balls.json in Resources */,
+				AA98F43A29396FA600117465 /* ball_drop.json in Resources */,
+				AAA9C448292194E200918808 /* Preview Assets.xcassets in Resources */,
+				AAED229229219A1F00AFE937 /* lotto_balls.json in Resources */,
+				AAED22952921A79400AFE937 /* Luckies_Logo.json in Resources */,
+				AAA9C445292194E200918808 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		AAA9C439292194E100918808 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AA98F43E2940102E00117465 /* BallDrop_Observables.swift in Sources */,
+				AA98F444294017ED00117465 /* Custom_Buttons.swift in Sources */,
+				AA98F4402940118B00117465 /* Identifiable_Items.swift in Sources */,
+				AACC0AE629358F560039AFF1 /* LuckyModel.xcdatamodeld in Sources */,
+				AAED229F2921C68600AFE937 /* LaunchScreenStep.swift in Sources */,
+				AAED22A32921E79600AFE937 /* Move_Text.swift in Sources */,
+				AAED228C2921969100AFE937 /* BuildLottie.swift in Sources */,
+				AAED229D2921AB3300AFE937 /* SceneDelegate.swift in Sources */,
+				AAED229B2921A93000AFE937 /* OnBoard.swift in Sources */,
+				AAA120B029287ACC005FD5C8 /* Coin_View.swift in Sources */,
+				AA1E87D029401EEC0080C276 /* InfoButtonView.swift in Sources */,
+				AA1E87D429401F750080C276 /* HeartsAnimation.swift in Sources */,
+				AAA9C443292194E100918808 /* ContentView.swift in Sources */,
+				AAED22A12921C6A700AFE937 /* LaunchScreenStateManager.swift in Sources */,
+				AA98F4422940128900117465 /* Extensions.swift in Sources */,
+				AA1E87D7294020DE0080C276 /* HomeView.swift in Sources */,
+				AAED22992921A8DC00AFE937 /* RandomGen.swift in Sources */,
+				AAA9C441292194E100918808 /* Lucky_NumbersApp.swift in Sources */,
+				AAED22972921A88A00AFE937 /* BallDropButton.swift in Sources */,
+				AA98F43C29400F0A00117465 /* Modifiers.swift in Sources */,
+				AA1E87D229401F210080C276 /* FavoritesView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		AAA9C449292194E200918808 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		AAA9C44A292194E200918808 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		AAA9C44C292194E200918808 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
+				"ASSETCATALOG_COMPILER_OPTIMIZATION[sdk=iphonesimulator*]" = "";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 2.1.4;
+				DEAD_CODE_STRIPPING = NO;
+				DEVELOPMENT_ASSET_PATHS = "\"Lucky Numbers/Preview Content\"";
+				DEVELOPMENT_TEAM = R8362KYW8Q;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Lucky-Numbers-Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "Lucky Lotto: Smart Numbers";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = Luckies.Lotto;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		AAA9C44D292194E200918808 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 2.1.4;
+				DEAD_CODE_STRIPPING = NO;
+				DEVELOPMENT_ASSET_PATHS = "\"Lucky Numbers/Preview Content\"";
+				DEVELOPMENT_TEAM = R8362KYW8Q;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Lucky-Numbers-Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "Lucky Lotto: Smart Numbers";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 2.1.4;
+				PRODUCT_BUNDLE_IDENTIFIER = Luckies.Lotto;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		AAA9C438292194E100918808 /* Build configuration list for PBXProject "Lucky Numbers" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AAA9C449292194E200918808 /* Debug */,
+				AAA9C44A292194E200918808 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AAA9C44B292194E200918808 /* Build configuration list for PBXNativeTarget "Lucky Numbers" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AAA9C44C292194E200918808 /* Debug */,
+				AAA9C44D292194E200918808 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		AAA9C44E292195CC00918808 /* XCRemoteSwiftPackageReference "lottie-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/airbnb/lottie-ios.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		AAA9C44F292195CC00918808 /* Lottie */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = AAA9C44E292195CC00918808 /* XCRemoteSwiftPackageReference "lottie-ios" */;
+			productName = Lottie;
+		};
+/* End XCSwiftPackageProductDependency section */
+
+/* Begin XCVersionGroup section */
+		AACC0AE429358F560039AFF1 /* LuckyModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				AACC0AE529358F560039AFF1 /* LuckyModel.xcdatamodel */,
+			);
+			currentVersion = AACC0AE529358F560039AFF1 /* LuckyModel.xcdatamodel */;
+			path = LuckyModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = AAA9C435292194E100918808 /* Project object */;
+}
