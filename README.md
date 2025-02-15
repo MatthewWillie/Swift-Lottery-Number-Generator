@@ -2,13 +2,6 @@
   <img src="https://github.com/MatthewWillie/Lucky-Numbers/blob/main/LuckiesAppStore.png?raw=true" width="500">
 </p>
 
-## Demo Video
-<p align="center">
-  <a href="https://www.youtube.com/watch?v=iOrkboz8oAA">
-    <img src="https://img.youtube.com/vi/iOrkboz8oAA/maxresdefault.jpg" width="500">
-  </a>
-</p>
-
 # Lucky Numbers
 
 Lucky Numbers is an iOS application that generates random lucky numbers with smooth animations and an intuitive user interface. Built with Swift and SwiftUI, the app offers a fun way to generate numbers for games, decision-making, or personal entertainment.
@@ -55,6 +48,13 @@ Contributions are welcome! If you would like to enhance the project, follow thes
    git push origin feature-branch
    ```
 5. Submit a pull request for review.
+
+## Demo Video
+<p align="center">
+  <a href="https://www.youtube.com/watch?v=iOrkboz8oAA">
+    <img src="https://img.youtube.com/vi/iOrkboz8oAA/maxresdefault.jpg" width="500">
+  </a>
+</p>
 
 ## License
 
