@@ -6,45 +6,52 @@ Lucky Numbers is an iOS application that generates random lucky numbers with smo
 
 To set up and run Lucky Numbers on your local machine, follow these steps:
 
-### **1️⃣ Clone the repository**
-```sh
+### 1️⃣ Clone the repository
+```
 git clone https://github.com/MatthewWillie/Lucky-Numbers.git
-2️⃣ Open the project in Xcode
-Navigate to the project directory.
-Open Lucky Numbers.xcodeproj.
-3️⃣ Build and run the app
-Select an iPhone simulator or a physical device.
-Click "Run" (Cmd + R) in Xcode.
-Technologies Used
-Swift – Primary programming language
-SwiftUI / UIKit – User interface design
-Xcode – Integrated development environment
-GitHub – Version control and collaboration
-Contributing
+```
+
+### 2️⃣ Open the project in Xcode
+- Navigate to the project directory.
+- Open `Lucky Numbers.xcodeproj`.
+
+### 3️⃣ Build and run the app
+- Select an iPhone simulator or a physical device.
+- Click "Run" (`Cmd + R`) in Xcode.
+
+## Technologies Used
+
+- Swift – Primary programming language
+- SwiftUI / UIKit – User interface design
+- Xcode – Integrated development environment
+- GitHub – Version control and collaboration
+
+## Contributing
+
 Contributions are welcome! If you would like to enhance the project, follow these steps:
 
-Fork the repository.
-Create a new branch
-sh
-Copy
-Edit
-git checkout -b feature-branch
-Make your changes and commit
-sh
-Copy
-Edit
-git commit -m "Description of changes"
-Push to your branch
-sh
-Copy
-Edit
-git push origin feature-branch
-Submit a pull request for review.
-License
-This project is licensed under the MIT License. See the LICENSE file for details.
+1. Fork the repository.
+2. Create a new branch  
+   ```
+   git checkout -b feature-branch
+   ```
+3. Make your changes and commit  
+   ```
+   git commit -m "Description of changes"
+   ```
+4. Push to your branch  
+   ```
+   git push origin feature-branch
+   ```
+5. Submit a pull request for review.
 
-Contact
-Author: Matthew Willie
-GitHub: MatthewWillie
+## License
+
+This project is licensed under the **MIT License**. See the `LICENSE` file for details.
+
+## Contact
+
+**Author:** Matthew Willie  
+**GitHub:** [MatthewWillie](https://github.com/MatthewWillie)  
 
 For any inquiries, feel free to reach out via GitHub.
