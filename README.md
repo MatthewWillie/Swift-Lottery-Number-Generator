@@ -1,3 +1,6 @@
+![Alt Text](https://github.com/MatthewWillie/Lucky-Numbers/blob/main/LuckiesAppStore.png?raw=true)
+
+
 # Lucky Numbers
 
 Lucky Numbers is an iOS application that generates random lucky numbers with smooth animations and an intuitive user interface. Built with Swift and SwiftUI, the app offers a fun way to generate numbers for games, decision-making, or personal entertainment.
