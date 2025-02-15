@@ -1,8 +1,10 @@
 ![Alt Text](https://github.com/MatthewWillie/Lucky-Numbers/blob/main/LuckiesAppStore.png?raw=true)
 ## Demo Video
-<a href="https://www.youtube.com/watch?v=iOrkboz8oAA">
-  <img src="https://img.youtube.com/vi/iOrkboz8oAA/maxresdefault.jpg" width="500">
-</a>
+<p align="center">
+  <a href="https://www.youtube.com/watch?v=iOrkboz8oAA">
+    <img src="https://img.youtube.com/vi/iOrkboz8oAA/maxresdefault.jpg" width="500">
+  </a>
+</p>
 
 # Lucky Numbers
 
