@@ -1,4 +1,6 @@
-![Alt Text](https://github.com/MatthewWillie/Lucky-Numbers/blob/main/LuckiesAppStore.png?raw=true)
+<p align="center">
+  <img src="https://github.com/MatthewWillie/Lucky-Numbers/blob/main/LuckiesAppStore.png?raw=true" width="500">
+</p>
 ## Demo Video
 <p align="center">
   <a href="https://www.youtube.com/watch?v=iOrkboz8oAA">
