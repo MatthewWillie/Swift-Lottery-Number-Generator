@@ -64,5 +64,3 @@ GitHub: MatthewWillie
 
 For any inquiries, feel free to reach out via GitHub.
 
-<meta name="google-site-verification" content="csmcGv59pXc2B8eU-xMfQyPqXSKLVfym1HxYbQM5r14" />
-
