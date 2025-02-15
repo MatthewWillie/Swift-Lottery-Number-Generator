@@ -48,7 +48,7 @@ Contributions are welcome! If you would like to enhance the project, follow thes
 
 ## License
 
-This project is licensed under the **MIT License**. See the `LICENSE` file for details.
+This project is licensed. See the `LICENSE` file for details.
 
 ## Contact
 
