@@ -123,8 +123,8 @@ struct EuroMillionsDraw: View {
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.75) {
                 // Midpoint: start scaling down and adjusting offset
                 withAnimation(.easeInOut(duration: 0.5)) {
-                    logoScale = 0.66 // Final scale (200/300)
-                    logoOffset = -202 // Final position
+                    logoScale = 0.665 // Final scale (200/300)
+                    logoOffset = -193 // Final position
                 }
             }
             DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {

@@ -2,7 +2,7 @@
 //  Coin_View.swift
 //  Lucky Numbers
 //
-//  Created by Matt Willie on 11/18/22.
+//  Created by Matt Willie on 2/17/25.
 //
 
 
@@ -222,9 +222,9 @@ struct CoinView: View {
                                     .toolbar{
                                         EditButton()
                                             .bold()
-                                            .shadow(color: Color.white.opacity(0.9), radius: 4, x: 0, y: 2)
-                                                    .shadow(color: Color.white.opacity(0.8), radius: 8, x: 0, y: 2)
-                                                    .shadow(color: Color.white.opacity(0.6), radius: 12, x: 0, y: 2)
+                                            .shadow(color: Color.white.opacity(0.9), radius: 8, x: 0, y: 2)
+                                                    .shadow(color: Color.white.opacity(0.8), radius: 12, x: 0, y: 2)
+                                                    .shadow(color: Color.white.opacity(0.6), radius: 18, x: 0, y: 2)
                                         
                                     }
                                 }

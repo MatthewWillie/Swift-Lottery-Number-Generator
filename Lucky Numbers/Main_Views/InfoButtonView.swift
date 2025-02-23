@@ -29,7 +29,7 @@ struct InfoButton: View {
             }
         })
         .opacity(0.7)
-        .offset(y: UIScreen.main.bounds.height/4)
+        .offset(y: UIScreen.main.bounds.height/4.9)
         .buttonStyle(PlainButtonStyle())
                 
         .sheet(isPresented: $showSheet2, content: {

@@ -118,3 +118,8 @@ extension Int {
     }
 }
 
+extension LottieView {
+    func persistent(withID id: String = "UniqueLottieAnimationView") -> some View {
+        self.id(id)
+    }
+}

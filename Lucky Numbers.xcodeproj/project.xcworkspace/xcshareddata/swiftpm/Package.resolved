@@ -1,4 +1,5 @@
 {
+  "originHash" : "b71cf0ce00a2fcd08d52bb5ef8ef107ec5c63f145df589139375341a25b24db1",
   "pins" : [
     {
       "identity" : "lottie-ios",
@@ -8,7 +9,25 @@
         "revision" : "b4bd0604ded9574807f41b4004b57dd1226a30a4",
         "version" : "3.5.0"
       }
+    },
+    {
+      "identity" : "swift-package-manager-google-mobile-ads",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/googleads/swift-package-manager-google-mobile-ads",
+      "state" : {
+        "revision" : "aa24c7dc03bca62c42747314dc8537f15587b50d",
+        "version" : "12.0.0"
+      }
+    },
+    {
+      "identity" : "swift-package-manager-google-user-messaging-platform",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/googleads/swift-package-manager-google-user-messaging-platform.git",
+      "state" : {
+        "revision" : "708a282840c2171ee63bd93b87afa49fe507d70e",
+        "version" : "2.7.0"
+      }
     }
   ],
-  "version" : 2
+  "version" : 3
 }

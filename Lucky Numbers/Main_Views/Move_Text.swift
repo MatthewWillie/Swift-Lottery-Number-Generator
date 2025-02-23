@@ -7,30 +7,6 @@
 
 import SwiftUI
 
-struct GlowingBallView: View {
-    @State private var glowScale: CGFloat = 2.0
-    @State private var glowOpacity: Double = 0.8
-
-    var body: some View {
-        Circle()
-            .fill(Color.yellow.opacity(0.7))
-            .frame(width: 80, height: 80)
-            .shadow(color: Color.yellow.opacity(0.9), radius: 20)
-            .overlay(
-                Circle()
-                    .stroke(Color.yellow.opacity(0.8), lineWidth: 4)
-                    .blur(radius: 10)
-            )
-            .scaleEffect(glowScale)
-            .opacity(glowOpacity)
-            .animation(Animation.easeInOut(duration: 1.2).repeatForever(autoreverses: true), value: glowScale)
-            .onAppear {
-                glowScale = 1.3
-                glowOpacity = 0.5
-            }
-            .offset(y: -UIScreen.main.bounds.height / 20) // Adjust position as needed
-    }
-}
 
 struct SparkleView: View {
     @State var isAnimating2 = false
@@ -57,54 +33,99 @@ struct SparkleView: View {
     }
 }
 
-struct MoveView: View {
-    @EnvironmentObject var numberHold: NumberHold
-    @Binding var firstClick: Int
-    @State var toSparkle: Bool = true
-    @Binding var savedText: [String]
-    @State private var enabled = false
-    @State var toGlow: Bool = true
+
+struct AnimatedTextView: View {
+    let text: String
+    let index: Int
+    let enabled: Bool  // Shared toggle from MoveView
 
     var body: some View {
+        Text(text)
+            .font(.custom("Times New Roman", fixedSize: enabled ? 0 : 33))
+            .frame(width: enabled ? 0 : 64)
+            .fontWeight(.bold)
+            .addGlowEffect(
+                color1: Color.black,
+                color2: Color.black,
+                color3: Color.yellow
+            )
+            .offset(
+                x: enabled
+                    ? UIScreen.main.bounds.width / 45
+                    : -UIScreen.main.bounds.width / 45,
+                y: enabled
+                ? -UIScreen.main.bounds.height / 1.6
+                    : -UIScreen.main.bounds.height / 22
+            )
+            .opacity(enabled ? 0 : 1)
+            .rotation3DEffect(
+                .degrees(enabled ? 25 : 0),
+                axis: (x: 1, y: 1, z: 3),
+                perspective: 0.1
+            )
+            // Stagger the animation by index
+            .animation(
+                .default.delay(Double(index) / 8.4),
+                value: enabled
+            )
+    }
+}
+
+
+import SwiftUI
+
+struct MoveView: View {
+    @EnvironmentObject var numberHold: NumberHold
+    
+    // Provided bindings
+    @Binding var firstClick: Int
+    @Binding var savedText: [String]
+    
+    // Local states
+    @State var toSparkle: Bool = true
+    @State var toGlow: Bool = true
+    
+    // Single toggle for the entire group
+    @State private var enabled = false
+    @State private var hasAnimated = false
+    
+    var body: some View {
         ZStack {
+            // Toggle SparkleView from hidden to visible
             if toSparkle {
                 SparkleView().hidden()
             } else {
                 SparkleView()
             }
             
+            // Display the texts in an HStack
             HStack(spacing: 0) {
                 if firstClick > 0 {
-                    ForEach(0..<savedText.count, id: \.self) { num in
-                        Text(String(savedText[num]))
-                            .frame(width: 64)
-                            .fontWeight(.bold)
-                            .addGlowEffect(
-                                color1: Color.black,
-                                color2: Color.black,
-                                color3: Color.yellow
-                            )
-                            .font(.custom("Times New Roman", fixedSize: enabled ? 0 : 33))
-                            .frame(width: enabled ? 0 : 64)
-                            .offset(
-                                x: enabled ? UIScreen.main.bounds.width / 9 : -UIScreen.main.bounds.width / 45,
-                                y: enabled ? -UIScreen.main.bounds.height / 1.4 : -UIScreen.main.bounds.height / 23
-                            )
-                            .opacity(enabled ? 0 : 1)
-                            .rotation3DEffect(.degrees(enabled ? 25 : 0), axis: (x: 1, y: 1, z: 3), perspective: 0.1)
-                            .animation(Animation.default.delay(Double(num) / 7.4), value: enabled)
+                    ForEach(0..<savedText.count, id: \.self) { index in
+                        // Pass `enabled` down to each AnimatedTextView
+                        AnimatedTextView(
+                            text: savedText[index],
+                            index: index,
+                            enabled: enabled
+                        )
                     }
                 }
             }
         }
         .onAppear {
+            guard !hasAnimated else { return }
+                        hasAnimated = true
+            // 1) Flip `enabled` once for the entire group
             self.enabled.toggle()
+            
+            // 2) After 1 second, un-hide the SparkleView
             DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
                 self.toSparkle = false
             }
         }
     }
 }
+
 
 struct MyPreview_Previews: PreviewProvider {
     static var previews: some View {
@@ -120,7 +141,6 @@ struct MyPreview_Previews: PreviewProvider {
                 .environmentObject(NumberHold())
                 .environmentObject(CustomRandoms())
 
-            GlowingBallView() // Adds the glowing ball effect
         }
     }
 }

@@ -2,7 +2,7 @@
 //  FavoritesView.swift
 //  Lucky Numbers
 //
-//  Created by Matt Willie on 12/6/22.
+//  Created by Matt Willie on 2/17/25.
 //
 
 import SwiftUI
@@ -127,6 +127,9 @@ struct FavoritesView: View {
                             ZStack{
                                 EditButton()
                                     .bold()
+                                    .shadow(color: Color.white.opacity(0.9), radius: 8, x: 0, y: 2)
+                                            .shadow(color: Color.white.opacity(0.8), radius: 10, x: 0, y: 2)
+                                            .shadow(color: Color.white.opacity(0.6), radius: 18, x: 0, y: 2)
                             }
 
                         }

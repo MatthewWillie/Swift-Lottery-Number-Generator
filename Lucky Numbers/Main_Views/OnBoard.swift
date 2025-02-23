@@ -266,7 +266,7 @@ struct OnBoardView: View {
                         .padding()
                         .opacity(isAnimating ? 1 : 0)
                         .offset(y: isAnimating ? 0 : 40)
-                        .offset(y: -20)
+                        .offset(y: -70)
                         .animation(.easeOut(duration: 1).delay(1.7), value: isAnimating)
                         
                     }

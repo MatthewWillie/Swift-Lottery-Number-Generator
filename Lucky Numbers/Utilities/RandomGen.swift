@@ -2,7 +2,7 @@
 //  RandomGen.swift
 //  Lucky Numbers
 //
-//  Created by Matt Willie on 11/13/22.
+//  Created by Matt Willie on 2/17/25.
 //
 
 
@@ -10,7 +10,7 @@ import SwiftUI
 import GameKit
 
 
-//  Most commonly chosen lotto numbers------------------
+//  Most commonly chosen lotto numbers in Gaussian order------------------
 let luxNums = [68, 16, 22, 42, 37, 44, 28, 53, 20, 3, 62, 14, 10, 17, 64, 32, 8, 59, 27, 15, 56, 40, 6, 18]
 
 
