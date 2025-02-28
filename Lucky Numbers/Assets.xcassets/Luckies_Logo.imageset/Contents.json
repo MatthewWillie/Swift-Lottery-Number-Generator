@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "Luckies_Logo-1.png",
+      "filename" : "JackpotAILogo.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "Luckies_Logo-1@2x.png",
+      "filename" : "JackpotAILogo 1.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "Luckies_Logo-1@3x.png",
+      "filename" : "JackpotAILogo 2.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

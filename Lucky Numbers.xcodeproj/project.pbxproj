@@ -3,30 +3,18 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 70;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		AA0E0F642D6304DB0047D4B0 /* AdManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0E0F632D6304D80047D4B0 /* AdManager.swift */; };
-		AA1780822D69544D0040816C /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA1780812D6954460040816C /* SettingsView.swift */; };
-		AA1E87D029401EEC0080C276 /* InfoButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA1E87CF29401EEC0080C276 /* InfoButtonView.swift */; };
-		AA1E87D229401F210080C276 /* FavoritesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA1E87D129401F210080C276 /* FavoritesView.swift */; };
-		AA1E87D429401F750080C276 /* HeartsAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA1E87D329401F750080C276 /* HeartsAnimation.swift */; };
-		AA1E87D7294020DE0080C276 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA1E87D6294020DE0080C276 /* HomeView.swift */; };
-		AA2126312D63D6D900BD5918 /* IAPManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA2126302D63D6D500BD5918 /* IAPManager.swift */; };
-		AA2126332D63E44800BD5918 /* RemoveAdsPopup.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA2126322D63E43900BD5918 /* RemoveAdsPopup.swift */; };
 		AA2126362D63FEDC00BD5918 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA2126352D63FEDC00BD5918 /* StoreKit.framework */; };
-		AA2126382D65582600BD5918 /* LotteryResultsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA2126372D65582400BD5918 /* LotteryResultsView.swift */; };
+		AA2E3FC02D6D30EE0062BC1F /* JackpotAI_Logo.json in Resources */ = {isa = PBXBuildFile; fileRef = AA2E3FBF2D6D30EE0062BC1F /* JackpotAI_Logo.json */; };
 		AA6299722D62A6CA0013D2B9 /* GoogleMobileAds in Frameworks */ = {isa = PBXBuildFile; productRef = AA6299712D62A6CA0013D2B9 /* GoogleMobileAds */; };
 		AA98F43A29396FA600117465 /* ball_drop.json in Resources */ = {isa = PBXBuildFile; fileRef = AA98F43929396FA600117465 /* ball_drop.json */; };
 		AA98F43C29400F0A00117465 /* Modifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA98F43B29400F0A00117465 /* Modifiers.swift */; };
 		AA98F43E2940102E00117465 /* BallDrop_Observables.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA98F43D2940102E00117465 /* BallDrop_Observables.swift */; };
 		AA98F4402940118B00117465 /* Identifiable_Items.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA98F43F2940118B00117465 /* Identifiable_Items.swift */; };
 		AA98F4422940128900117465 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA98F4412940128900117465 /* Extensions.swift */; };
-		AA98F444294017ED00117465 /* Custom_Buttons.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA98F443294017ED00117465 /* Custom_Buttons.swift */; };
-		AAA120B029287ACC005FD5C8 /* Coin_View.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA120AF29287ACC005FD5C8 /* Coin_View.swift */; };
-		AAA9C441292194E100918808 /* Lucky_NumbersApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA9C440292194E100918808 /* Lucky_NumbersApp.swift */; };
-		AAA9C443292194E100918808 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA9C442292194E100918808 /* ContentView.swift */; };
 		AAA9C445292194E200918808 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AAA9C444292194E200918808 /* Assets.xcassets */; };
 		AAA9C448292194E200918808 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AAA9C447292194E200918808 /* Preview Assets.xcassets */; };
 		AAA9C450292195CC00918808 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = AAA9C44F292195CC00918808 /* Lottie */; };
@@ -35,40 +23,18 @@
 		AAED228C2921969100AFE937 /* BuildLottie.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAED228B2921969100AFE937 /* BuildLottie.swift */; };
 		AAED229229219A1F00AFE937 /* lotto_balls.json in Resources */ = {isa = PBXBuildFile; fileRef = AAED229129219A1F00AFE937 /* lotto_balls.json */; };
 		AAED22952921A79400AFE937 /* Luckies_Logo.json in Resources */ = {isa = PBXBuildFile; fileRef = AAED22942921A79400AFE937 /* Luckies_Logo.json */; };
-		AAED22972921A88A00AFE937 /* BallDropButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAED22962921A88A00AFE937 /* BallDropButton.swift */; };
 		AAED22992921A8DC00AFE937 /* RandomGen.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAED22982921A8DC00AFE937 /* RandomGen.swift */; };
-		AAED229B2921A93000AFE937 /* OnBoard.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAED229A2921A93000AFE937 /* OnBoard.swift */; };
-		AAED229D2921AB3300AFE937 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAED229C2921AB3300AFE937 /* SceneDelegate.swift */; };
-		AAED229F2921C68600AFE937 /* LaunchScreenStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAED229E2921C68600AFE937 /* LaunchScreenStep.swift */; };
-		AAED22A12921C6A700AFE937 /* LaunchScreenStateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAED22A02921C6A700AFE937 /* LaunchScreenStateManager.swift */; };
-		AAED22A32921E79600AFE937 /* Move_Text.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAED22A22921E79600AFE937 /* Move_Text.swift */; };
-		AAFB3B572D6661EB0036F024 /* ResultsHistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAFB3B562D6661DE0036F024 /* ResultsHistoryView.swift */; };
-		AAFB3B5D2D66D3160036F024 /* HomeAnimationsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAFB3B5C2D66D30E0036F024 /* HomeAnimationsView.swift */; };
-		AAFB3B5F2D66D4D20036F024 /* LaunchScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAFB3B5E2D66D4CA0036F024 /* LaunchScreenView.swift */; };
-		AAFB3B612D683B4D0036F024 /* EuroMillionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAFB3B602D683B470036F024 /* EuroMillionsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		AA0E0F632D6304D80047D4B0 /* AdManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdManager.swift; sourceTree = "<group>"; };
-		AA1780812D6954460040816C /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
-		AA1E87CF29401EEC0080C276 /* InfoButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoButtonView.swift; sourceTree = "<group>"; };
-		AA1E87D129401F210080C276 /* FavoritesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesView.swift; sourceTree = "<group>"; };
-		AA1E87D329401F750080C276 /* HeartsAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeartsAnimation.swift; sourceTree = "<group>"; };
-		AA1E87D6294020DE0080C276 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
-		AA2126302D63D6D500BD5918 /* IAPManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IAPManager.swift; sourceTree = "<group>"; };
-		AA2126322D63E43900BD5918 /* RemoveAdsPopup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoveAdsPopup.swift; sourceTree = "<group>"; };
 		AA2126352D63FEDC00BD5918 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
-		AA2126372D65582400BD5918 /* LotteryResultsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LotteryResultsView.swift; sourceTree = "<group>"; };
+		AA2E3FBF2D6D30EE0062BC1F /* JackpotAI_Logo.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = JackpotAI_Logo.json; sourceTree = "<group>"; };
 		AA98F43929396FA600117465 /* ball_drop.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = ball_drop.json; sourceTree = "<group>"; };
 		AA98F43B29400F0A00117465 /* Modifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Modifiers.swift; sourceTree = "<group>"; };
 		AA98F43D2940102E00117465 /* BallDrop_Observables.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BallDrop_Observables.swift; sourceTree = "<group>"; };
 		AA98F43F2940118B00117465 /* Identifiable_Items.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Identifiable_Items.swift; sourceTree = "<group>"; };
 		AA98F4412940128900117465 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
-		AA98F443294017ED00117465 /* Custom_Buttons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Custom_Buttons.swift; sourceTree = "<group>"; };
-		AAA120AF29287ACC005FD5C8 /* Coin_View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coin_View.swift; sourceTree = "<group>"; };
 		AAA9C43D292194E100918808 /* Lucky Numbers.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Lucky Numbers.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		AAA9C440292194E100918808 /* Lucky_NumbersApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lucky_NumbersApp.swift; sourceTree = "<group>"; };
-		AAA9C442292194E100918808 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		AAA9C444292194E200918808 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AAA9C447292194E200918808 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		AACC0AE529358F560039AFF1 /* LuckyModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = LuckyModel.xcdatamodel; sourceTree = "<group>"; };
@@ -77,18 +43,22 @@
 		AAED229129219A1F00AFE937 /* lotto_balls.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = lotto_balls.json; sourceTree = "<group>"; };
 		AAED229329219B9A00AFE937 /* Lucky-Numbers-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Lucky-Numbers-Info.plist"; sourceTree = SOURCE_ROOT; };
 		AAED22942921A79400AFE937 /* Luckies_Logo.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Luckies_Logo.json; sourceTree = "<group>"; };
-		AAED22962921A88A00AFE937 /* BallDropButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BallDropButton.swift; sourceTree = "<group>"; };
 		AAED22982921A8DC00AFE937 /* RandomGen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomGen.swift; sourceTree = "<group>"; };
-		AAED229A2921A93000AFE937 /* OnBoard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoard.swift; sourceTree = "<group>"; };
-		AAED229C2921AB3300AFE937 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		AAED229E2921C68600AFE937 /* LaunchScreenStep.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreenStep.swift; sourceTree = "<group>"; };
-		AAED22A02921C6A700AFE937 /* LaunchScreenStateManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreenStateManager.swift; sourceTree = "<group>"; };
-		AAED22A22921E79600AFE937 /* Move_Text.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Move_Text.swift; sourceTree = "<group>"; };
-		AAFB3B562D6661DE0036F024 /* ResultsHistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsHistoryView.swift; sourceTree = "<group>"; };
-		AAFB3B5C2D66D30E0036F024 /* HomeAnimationsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeAnimationsView.swift; sourceTree = "<group>"; };
-		AAFB3B5E2D66D4CA0036F024 /* LaunchScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreenView.swift; sourceTree = "<group>"; };
-		AAFB3B602D683B470036F024 /* EuroMillionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EuroMillionsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		AA2E3FA82D6AC58C0062BC1F /* UIComponents */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = UIComponents; sourceTree = "<group>"; };
+		AA2E3FA92D6AC6180062BC1F /* Home */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Home; sourceTree = "<group>"; };
+		AA2E3FAA2D6AC61D0062BC1F /* Launch Screen */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = "Launch Screen"; sourceTree = "<group>"; };
+		AA2E3FAB2D6AC6200062BC1F /* Onboarding */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Onboarding; sourceTree = "<group>"; };
+		AA2E3FAC2D6AC6260062BC1F /* LotteryResults */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = LotteryResults; sourceTree = "<group>"; };
+		AA2E3FAD2D6AC6A80062BC1F /* Settings */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Settings; sourceTree = "<group>"; };
+		AA2E3FAE2D6AC6AB0062BC1F /* Favorites */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Favorites; sourceTree = "<group>"; };
+		AA2E3FAF2D6AC77E0062BC1F /* Managers */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Managers; sourceTree = "<group>"; };
+		AA2E3FB02D6AC7BF0062BC1F /* App */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = App; sourceTree = "<group>"; };
+		AA2E3FB12D6AC8520062BC1F /* Models */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Models; sourceTree = "<group>"; };
+		AA2E3FB22D6AC8C60062BC1F /* RootViews */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = RootViews; sourceTree = "<group>"; };
+/* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		AAA9C43A292194E100918808 /* Frameworks */ = {
@@ -104,43 +74,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		AA1E87D5294020700080C276 /* Main_Views */ = {
+		AA1E87D5294020700080C276 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				AA1780812D6954460040816C /* SettingsView.swift */,
-				AAFB3B602D683B470036F024 /* EuroMillionsView.swift */,
-				AAFB3B5E2D66D4CA0036F024 /* LaunchScreenView.swift */,
-				AAFB3B5C2D66D30E0036F024 /* HomeAnimationsView.swift */,
-				AAFB3B562D6661DE0036F024 /* ResultsHistoryView.swift */,
-				AA2126372D65582400BD5918 /* LotteryResultsView.swift */,
-				AA2126322D63E43900BD5918 /* RemoveAdsPopup.swift */,
-				AAED22A22921E79600AFE937 /* Move_Text.swift */,
-				AAA120AF29287ACC005FD5C8 /* Coin_View.swift */,
-				AA1E87CF29401EEC0080C276 /* InfoButtonView.swift */,
-				AA1E87D129401F210080C276 /* FavoritesView.swift */,
-				AA1E87D6294020DE0080C276 /* HomeView.swift */,
-				AAED229A2921A93000AFE937 /* OnBoard.swift */,
-				AA98F443294017ED00117465 /* Custom_Buttons.swift */,
-				AA1E87D329401F750080C276 /* HeartsAnimation.swift */,
+				AA2E3FB22D6AC8C60062BC1F /* RootViews */,
+				AA2E3FAE2D6AC6AB0062BC1F /* Favorites */,
+				AA2E3FAD2D6AC6A80062BC1F /* Settings */,
+				AA2E3FAC2D6AC6260062BC1F /* LotteryResults */,
+				AA2E3FAB2D6AC6200062BC1F /* Onboarding */,
+				AA2E3FAA2D6AC61D0062BC1F /* Launch Screen */,
+				AA2E3FA92D6AC6180062BC1F /* Home */,
+				AA2E3FA82D6AC58C0062BC1F /* UIComponents */,
 			);
-			path = Main_Views;
+			path = Views;
 			sourceTree = "<group>";
 		};
-		AA1E87D82940213E0080C276 /* LaunchViews */ = {
+		AA1E87D9294021DA0080C276 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				AAA9C442292194E100918808 /* ContentView.swift */,
-				AAED229E2921C68600AFE937 /* LaunchScreenStep.swift */,
-				AAED22A02921C6A700AFE937 /* LaunchScreenStateManager.swift */,
-			);
-			path = LaunchViews;
-			sourceTree = "<group>";
-		};
-		AA1E87D9294021DA0080C276 /* Utilities */ = {
-			isa = PBXGroup;
-			children = (
-				AA2126302D63D6D500BD5918 /* IAPManager.swift */,
-				AA0E0F632D6304D80047D4B0 /* AdManager.swift */,
 				AAED22982921A8DC00AFE937 /* RandomGen.swift */,
 				AAED228B2921969100AFE937 /* BuildLottie.swift */,
 				AA98F43D2940102E00117465 /* BallDrop_Observables.swift */,
@@ -148,7 +99,7 @@
 				AA98F43B29400F0A00117465 /* Modifiers.swift */,
 				AA98F43F2940118B00117465 /* Identifiable_Items.swift */,
 			);
-			path = Utilities;
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 		AA2126342D63FEDC00BD5918 /* Frameworks */ = {
@@ -165,6 +116,7 @@
 				AAED229129219A1F00AFE937 /* lotto_balls.json */,
 				AADCDEE8294BDC7E000573A6 /* load_balls.json */,
 				AAED22942921A79400AFE937 /* Luckies_Logo.json */,
+				AA2E3FBF2D6D30EE0062BC1F /* JackpotAI_Logo.json */,
 				AA98F43929396FA600117465 /* ball_drop.json */,
 				AAA9C43F292194E100918808 /* Lucky Numbers */,
 				AA2126342D63FEDC00BD5918 /* Frameworks */,
@@ -183,12 +135,11 @@
 		AAA9C43F292194E100918808 /* Lucky Numbers */ = {
 			isa = PBXGroup;
 			children = (
-				AAED229C2921AB3300AFE937 /* SceneDelegate.swift */,
-				AAA9C440292194E100918808 /* Lucky_NumbersApp.swift */,
-				AAED22962921A88A00AFE937 /* BallDropButton.swift */,
-				AA1E87D82940213E0080C276 /* LaunchViews */,
-				AA1E87D5294020700080C276 /* Main_Views */,
-				AA1E87D9294021DA0080C276 /* Utilities */,
+				AA2E3FB12D6AC8520062BC1F /* Models */,
+				AA2E3FB02D6AC7BF0062BC1F /* App */,
+				AA2E3FAF2D6AC77E0062BC1F /* Managers */,
+				AA1E87D9294021DA0080C276 /* Helpers */,
+				AA1E87D5294020700080C276 /* Views */,
 				AAED229329219B9A00AFE937 /* Lucky-Numbers-Info.plist */,
 				AAA9C446292194E200918808 /* Preview Content */,
 				AAA9C444292194E200918808 /* Assets.xcassets */,
@@ -219,6 +170,19 @@
 			buildRules = (
 			);
 			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				AA2E3FA82D6AC58C0062BC1F /* UIComponents */,
+				AA2E3FA92D6AC6180062BC1F /* Home */,
+				AA2E3FAA2D6AC61D0062BC1F /* Launch Screen */,
+				AA2E3FAB2D6AC6200062BC1F /* Onboarding */,
+				AA2E3FAC2D6AC6260062BC1F /* LotteryResults */,
+				AA2E3FAD2D6AC6A80062BC1F /* Settings */,
+				AA2E3FAE2D6AC6AB0062BC1F /* Favorites */,
+				AA2E3FAF2D6AC77E0062BC1F /* Managers */,
+				AA2E3FB02D6AC7BF0062BC1F /* App */,
+				AA2E3FB12D6AC8520062BC1F /* Models */,
+				AA2E3FB22D6AC8C60062BC1F /* RootViews */,
 			);
 			name = "Lucky Numbers";
 			packageProductDependencies = (
@@ -274,6 +238,7 @@
 				AADCDEE9294BDC7E000573A6 /* load_balls.json in Resources */,
 				AA98F43A29396FA600117465 /* ball_drop.json in Resources */,
 				AAA9C448292194E200918808 /* Preview Assets.xcassets in Resources */,
+				AA2E3FC02D6D30EE0062BC1F /* JackpotAI_Logo.json in Resources */,
 				AAED229229219A1F00AFE937 /* lotto_balls.json in Resources */,
 				AAED22952921A79400AFE937 /* Luckies_Logo.json in Resources */,
 				AAA9C445292194E200918808 /* Assets.xcassets in Resources */,
@@ -288,35 +253,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				AA98F43E2940102E00117465 /* BallDrop_Observables.swift in Sources */,
-				AA2126332D63E44800BD5918 /* RemoveAdsPopup.swift in Sources */,
-				AA98F444294017ED00117465 /* Custom_Buttons.swift in Sources */,
 				AA98F4402940118B00117465 /* Identifiable_Items.swift in Sources */,
 				AACC0AE629358F560039AFF1 /* LuckyModel.xcdatamodeld in Sources */,
-				AAED229F2921C68600AFE937 /* LaunchScreenStep.swift in Sources */,
-				AAED22A32921E79600AFE937 /* Move_Text.swift in Sources */,
 				AAED228C2921969100AFE937 /* BuildLottie.swift in Sources */,
-				AAED229D2921AB3300AFE937 /* SceneDelegate.swift in Sources */,
-				AAFB3B5F2D66D4D20036F024 /* LaunchScreenView.swift in Sources */,
-				AAFB3B5D2D66D3160036F024 /* HomeAnimationsView.swift in Sources */,
-				AAED229B2921A93000AFE937 /* OnBoard.swift in Sources */,
-				AA2126312D63D6D900BD5918 /* IAPManager.swift in Sources */,
-				AAA120B029287ACC005FD5C8 /* Coin_View.swift in Sources */,
-				AA1E87D029401EEC0080C276 /* InfoButtonView.swift in Sources */,
-				AA1E87D429401F750080C276 /* HeartsAnimation.swift in Sources */,
-				AAA9C443292194E100918808 /* ContentView.swift in Sources */,
-				AAED22A12921C6A700AFE937 /* LaunchScreenStateManager.swift in Sources */,
 				AA98F4422940128900117465 /* Extensions.swift in Sources */,
-				AA1E87D7294020DE0080C276 /* HomeView.swift in Sources */,
 				AAED22992921A8DC00AFE937 /* RandomGen.swift in Sources */,
-				AAA9C441292194E100918808 /* Lucky_NumbersApp.swift in Sources */,
-				AA0E0F642D6304DB0047D4B0 /* AdManager.swift in Sources */,
-				AA2126382D65582600BD5918 /* LotteryResultsView.swift in Sources */,
-				AAFB3B572D6661EB0036F024 /* ResultsHistoryView.swift in Sources */,
-				AAED22972921A88A00AFE937 /* BallDropButton.swift in Sources */,
-				AAFB3B612D683B4D0036F024 /* EuroMillionsView.swift in Sources */,
 				AA98F43C29400F0A00117465 /* Modifiers.swift in Sources */,
-				AA1780822D69544D0040816C /* SettingsView.swift in Sources */,
-				AA1E87D229401F210080C276 /* FavoritesView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -458,6 +400,7 @@
 				INFOPLIST_FILE = "Lucky-Numbers-Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "Lucky Numbers";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.entertainment";
+				INFOPLIST_KEY_NSUserTrackingUsageDescription = "This app uses tracking to provide personalized ads and improve user experience.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
@@ -496,6 +439,7 @@
 				INFOPLIST_FILE = "Lucky-Numbers-Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "Lucky Numbers";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.entertainment";
+				INFOPLIST_KEY_NSUserTrackingUsageDescription = "This app uses tracking to provide personalized ads and improve user experience.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";

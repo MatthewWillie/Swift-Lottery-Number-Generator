@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "coin.png",
+      "filename" : "RecentButton.png",
       "idiom" : "iphone",
       "scale" : "1x"
     },
     {
-      "filename" : "coin@2x.png",
+      "filename" : "RecentButton 1.png",
       "idiom" : "iphone",
       "scale" : "2x"
     },
     {
-      "filename" : "coin@3x.png",
+      "filename" : "RecentButton 2.png",
       "idiom" : "iphone",
       "scale" : "3x"
     }
