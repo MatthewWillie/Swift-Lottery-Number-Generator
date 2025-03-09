@@ -17,7 +17,7 @@ struct BackgroundView: View {
                 Image("background")
                     .resizable()
                     .ignoresSafeArea()
-                    .opacity(0.9)
+                    .opacity(0.4)
 
                 // **Glassmorphic Blur Overlay**
                 VisualEffectBlur(blurStyle: .systemUltraThinMaterialDark, opacity: 0.2)
@@ -56,23 +56,6 @@ struct BackgroundView: View {
                 )
                 .ignoresSafeArea()
                 
-                
-                // **Red Line Platform for Lottery Balls**
-//                Rectangle()
-//                    .fill(Color("darkBlue").opacity(0.6)) // Adjust opacity for boldness
-//                    .frame(height: 4) // Thin line
-//                    .frame(width: geometry.size.width * 1) // Slightly shorter than full width
-//                    .position(x: geometry.size.width / 2, y: geometry.size.height * 0.49) // Scales dynamically
-//                    .mask( // **Gradient Mask for Fading Edges**
-//                        LinearGradient(
-//                            gradient: Gradient(colors: [
-//                                Color.clear, Color.white, Color.white, Color.clear
-//                            ]),
-//                            startPoint: .leading,
-//                            endPoint: .trailing
-//                        )
-//                    )
-//                    .shadow(color: Color.black.opacity(0.9), radius: 7, x: 10, y: 15) // **Soft Glow Effect**
             }
         }
     }

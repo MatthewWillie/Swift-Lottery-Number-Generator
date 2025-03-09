@@ -9,13 +9,16 @@ import SwiftUI
 import Combine
 
 class AppDelegate: NSObject, UIApplicationDelegate {
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
+    func application(_ application: UIApplication,
+                     didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
         print("App Did Launch!")
         return true
     }
     
-    func application(_ application: UIApplication, configurationForConnecting connectingSceneSession: UISceneSession, options: UIScene.ConnectionOptions) -> UISceneConfiguration {
-        let sceneConfig: UISceneConfiguration = UISceneConfiguration(name: nil, sessionRole: connectingSceneSession.role)
+    func application(_ application: UIApplication,
+                     configurationForConnecting connectingSceneSession: UISceneSession,
+                     options: UIScene.ConnectionOptions) -> UISceneConfiguration {
+        let sceneConfig = UISceneConfiguration(name: nil, sessionRole: connectingSceneSession.role)
         sceneConfig.delegateClass = SceneDelegate.self
         return sceneConfig
     }
@@ -46,43 +49,82 @@ class Storage: NSObject {
 
 @main
 struct Lucky_NumbersApp: App {
-    // Configure global appearance for UITabBar
     init() {
         let appearance = UITabBarAppearance()
         appearance.configureWithOpaqueBackground()
-//        appearance.backgroundColor = UIColor.black // Set your custom color here
         appearance.backgroundColor = UIColor.black.withAlphaComponent(0.8)
-
         
         UITabBar.appearance().standardAppearance = appearance
         if #available(iOS 15.0, *) {
             UITabBar.appearance().scrollEdgeAppearance = appearance
         }
     }
-    
+
     @StateObject var launchScreenState = LaunchScreenStateManager()
     @StateObject var numberHold = NumberHold()
     @StateObject var userSettings = UserSettings(drawMethod: .Weighted)
     @StateObject var custom = CustomRandoms()
-    
+    @StateObject var animationState = BallDropAnimationState()
+    @StateObject var iapManager = IAPManager.shared           // ✅ IAP Manager globally
+    @StateObject var subscriptionTracker = SubscriptionTracker() // ✅ Add SubscriptionTracker here
+
     var body: some Scene {
         WindowGroup {
-            // Move NavigationView up here
             NavigationView {
                 ZStack {
                     ContentView()
                         .environmentObject(numberHold)
                         .environmentObject(userSettings)
                         .environmentObject(custom)
-                    
+                        .environmentObject(animationState)
+                        .environmentObject(iapManager)          // ✅ Inject IAPManager
+                        .environmentObject(subscriptionTracker) // ✅ Inject SubscriptionTracker
+
                     if launchScreenState.state != .finished {
                         LaunchScreenView()
                     }
                 }
             }
-            // Use a stack style for NavigationView to reduce re-renders
             .navigationViewStyle(StackNavigationViewStyle())
             .environmentObject(launchScreenState)
         }
+    }
+}
+
+struct RootViewForPreview: View {
+    @StateObject var launchScreenState = LaunchScreenStateManager()
+    @StateObject var numberHold = NumberHold()
+    @StateObject var userSettings = UserSettings(drawMethod: .Weighted)
+    @StateObject var custom = CustomRandoms()
+    @StateObject var animationState = BallDropAnimationState()
+    @StateObject var subscriptionTracker = SubscriptionTracker() // ✅ Added here for Preview
+
+    var body: some View {
+        NavigationView {
+            ZStack {
+                ContentView()
+                    .environmentObject(numberHold)
+                    .environmentObject(userSettings)
+                    .environmentObject(custom)
+                    .environmentObject(animationState)
+                    .environmentObject(subscriptionTracker) // ✅ Inject for preview as well
+
+                if launchScreenState.state != .finished {
+                    LaunchScreenView()
+                }
+            }
+        }
+        .navigationViewStyle(StackNavigationViewStyle())
+        .environmentObject(launchScreenState)
+    }
+}
+// ✅ **Ensure Preview Uses `RootViewForPreview` Correctly**
+struct Lucky_NumbersApp_Previews: PreviewProvider {
+    static var previews: some View {
+        RootViewForPreview()
+            .environmentObject(BallDropAnimationState())  // ✅ Ensures preview gets animation state
+            .environmentObject(UserSettings(drawMethod: .Weighted))
+            .environmentObject(NumberHold())
+            .environmentObject(CustomRandoms())
     }
 }

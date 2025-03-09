@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "infoBanner.png",
+      "filename" : "aiIcon.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "infoBanner 1.png",
+      "filename" : "aiIcon 1.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "infoBanner 2.png",
+      "filename" : "aiIcon 2.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

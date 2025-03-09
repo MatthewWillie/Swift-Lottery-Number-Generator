@@ -6,103 +6,90 @@
 //
 
 import StoreKit
+import SwiftUI
 
-/// A singleton class to manage in-app purchases.
 class IAPManager: NSObject, ObservableObject {
-    
-    /// Singleton instance
-    static let shared = IAPManager()
-    
-    /// The product ID for removing ads
-    private let removeAdsProductID = "remove_ads_199"  // Ensure this matches App Store Connect
 
-    /// Tracks if the purchase was restored
-    @Published var isPurchased: Bool = UserDefaults.standard.bool(forKey: "isAdRemoved")
-    
-    /// StoreKit product array
-    private var products: [SKProduct] = []
+    static let shared = IAPManager()
+
+    // Published properties for SwiftUI state management
+    @Published var products: [SKProduct] = []
+    @Published var isSubscribed: Bool = UserDefaults.standard.bool(forKey: "isSubscribed")
 
     override init() {
         super.init()
-        SKPaymentQueue.default().add(self) // Observe transactions
-        fetchProducts() // Load available products
+        SKPaymentQueue.default().add(self)
+        fetchProducts()
     }
 
-    /// Fetch available IAP products from App Store
-    func fetchProducts() {
-        let request = SKProductsRequest(productIdentifiers: [removeAdsProductID])
+    private func fetchProducts() {
+        let request = SKProductsRequest(productIdentifiers: ["com.jackpotai.subscription.monthly"])
         request.delegate = self
         request.start()
     }
 
-    /// Attempts to purchase the "Remove Ads" product
-    func buyRemoveAds(completion: (() -> Void)? = nil) {
-        guard let product = products.first(where: { $0.productIdentifier == removeAdsProductID }) else {
+    func purchaseSubscription() {
+        guard let product = products.first else {
             print("❌ Product not found.")
             return
         }
-        
-        let payment = SKPayment(product: product)
-        SKPaymentQueue.default().add(payment)
-        
-        print("🛒 Attempting to purchase: \(product.localizedTitle)")
+        SKPaymentQueue.default().add(SKPayment(product: product))
     }
 
-    /// Restores previous purchases
     func restorePurchases() {
         SKPaymentQueue.default().restoreCompletedTransactions()
-        print("🔄 Restoring purchases...")
+    }
+
+    private func completeSubscriptionPurchase() {
+        UserDefaults.standard.set(true, forKey: "isSubscribed")
+        DispatchQueue.main.async {
+            self.isSubscribed = true
+        }
+        AdManager.shared.removeAds()  // Removes ads once subscribed
     }
 }
 
-// MARK: - StoreKit Delegates
 extension IAPManager: SKProductsRequestDelegate, SKPaymentTransactionObserver {
-    
-    /// Handles the response from fetching available IAP products
+
     func productsRequest(_ request: SKProductsRequest, didReceive response: SKProductsResponse) {
         DispatchQueue.main.async {
             self.products = response.products
-            for product in response.products {
-                print("✅ Product Available: \(product.localizedTitle) - \(product.price)")
-            }
         }
     }
 
-    /// Handles transaction updates
     func paymentQueue(_ queue: SKPaymentQueue, updatedTransactions transactions: [SKPaymentTransaction]) {
         for transaction in transactions {
             switch transaction.transactionState {
-            case .purchased:
-                print("✅ Purchase successful: \(transaction.payment.productIdentifier)")
-                if transaction.payment.productIdentifier == removeAdsProductID {
-                    completeRemoveAdsPurchase()
-                }
+            case .purchased, .restored:
+                completeSubscriptionPurchase()
                 SKPaymentQueue.default().finishTransaction(transaction)
-
-            case .restored:
-                print("✅ Purchase restored: \(transaction.payment.productIdentifier)")
-                if transaction.payment.productIdentifier == removeAdsProductID {
-                    completeRemoveAdsPurchase()
-                }
-                SKPaymentQueue.default().finishTransaction(transaction)
-
             case .failed:
-                if let error = transaction.error {
-                    print("❌ Purchase failed: \(error.localizedDescription)")
-                }
                 SKPaymentQueue.default().finishTransaction(transaction)
-
             default:
                 break
             }
         }
     }
+}
 
-    /// Completes the "Remove Ads" purchase and updates the app state
-    private func completeRemoveAdsPurchase() {
-        UserDefaults.standard.set(true, forKey: "isAdRemoved")
-        isPurchased = true
-        AdManager.shared.removeAds()  // 🚀 Calls AdManager to remove ads
-        print("🚀 Ads have been removed successfully!")
+class SubscriptionTracker: ObservableObject {
+    @AppStorage("aiUsageCount") private var aiUsages: Int = 0
+    private let maxFreeUses = 5
+
+    var canUseAI: Bool {
+        aiUsages < maxFreeUses || IAPManager.shared.isSubscribed
+    }
+
+    var remainingFreeUses: Int {
+        max(0, maxFreeUses - aiUsages)
+    }
+
+    func incrementUsage() {
+        guard !IAPManager.shared.isSubscribed else { return }
+        aiUsages += 1
+    }
+
+    func resetUsage() {
+        aiUsages = 0 // Only call if you decide to reset usage, e.g., monthly
     }
 }

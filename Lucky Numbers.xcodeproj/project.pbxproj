@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AA17372F2D74103500E91BD0 /* RequestLimiter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA17372E2D74102F00E91BD0 /* RequestLimiter.swift */; };
 		AA2126362D63FEDC00BD5918 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA2126352D63FEDC00BD5918 /* StoreKit.framework */; };
 		AA2E3FC02D6D30EE0062BC1F /* JackpotAI_Logo.json in Resources */ = {isa = PBXBuildFile; fileRef = AA2E3FBF2D6D30EE0062BC1F /* JackpotAI_Logo.json */; };
 		AA6299722D62A6CA0013D2B9 /* GoogleMobileAds in Frameworks */ = {isa = PBXBuildFile; productRef = AA6299712D62A6CA0013D2B9 /* GoogleMobileAds */; };
@@ -22,11 +23,11 @@
 		AADCDEE9294BDC7E000573A6 /* load_balls.json in Resources */ = {isa = PBXBuildFile; fileRef = AADCDEE8294BDC7E000573A6 /* load_balls.json */; };
 		AAED228C2921969100AFE937 /* BuildLottie.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAED228B2921969100AFE937 /* BuildLottie.swift */; };
 		AAED229229219A1F00AFE937 /* lotto_balls.json in Resources */ = {isa = PBXBuildFile; fileRef = AAED229129219A1F00AFE937 /* lotto_balls.json */; };
-		AAED22952921A79400AFE937 /* Luckies_Logo.json in Resources */ = {isa = PBXBuildFile; fileRef = AAED22942921A79400AFE937 /* Luckies_Logo.json */; };
 		AAED22992921A8DC00AFE937 /* RandomGen.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAED22982921A8DC00AFE937 /* RandomGen.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		AA17372E2D74102F00E91BD0 /* RequestLimiter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestLimiter.swift; sourceTree = "<group>"; };
 		AA2126352D63FEDC00BD5918 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		AA2E3FBF2D6D30EE0062BC1F /* JackpotAI_Logo.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = JackpotAI_Logo.json; sourceTree = "<group>"; };
 		AA98F43929396FA600117465 /* ball_drop.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = ball_drop.json; sourceTree = "<group>"; };
@@ -42,7 +43,6 @@
 		AAED228B2921969100AFE937 /* BuildLottie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildLottie.swift; sourceTree = "<group>"; };
 		AAED229129219A1F00AFE937 /* lotto_balls.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = lotto_balls.json; sourceTree = "<group>"; };
 		AAED229329219B9A00AFE937 /* Lucky-Numbers-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Lucky-Numbers-Info.plist"; sourceTree = SOURCE_ROOT; };
-		AAED22942921A79400AFE937 /* Luckies_Logo.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Luckies_Logo.json; sourceTree = "<group>"; };
 		AAED22982921A8DC00AFE937 /* RandomGen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomGen.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -92,6 +92,7 @@
 		AA1E87D9294021DA0080C276 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				AA17372E2D74102F00E91BD0 /* RequestLimiter.swift */,
 				AAED22982921A8DC00AFE937 /* RandomGen.swift */,
 				AAED228B2921969100AFE937 /* BuildLottie.swift */,
 				AA98F43D2940102E00117465 /* BallDrop_Observables.swift */,
@@ -115,7 +116,6 @@
 			children = (
 				AAED229129219A1F00AFE937 /* lotto_balls.json */,
 				AADCDEE8294BDC7E000573A6 /* load_balls.json */,
-				AAED22942921A79400AFE937 /* Luckies_Logo.json */,
 				AA2E3FBF2D6D30EE0062BC1F /* JackpotAI_Logo.json */,
 				AA98F43929396FA600117465 /* ball_drop.json */,
 				AAA9C43F292194E100918808 /* Lucky Numbers */,
@@ -240,7 +240,6 @@
 				AAA9C448292194E200918808 /* Preview Assets.xcassets in Resources */,
 				AA2E3FC02D6D30EE0062BC1F /* JackpotAI_Logo.json in Resources */,
 				AAED229229219A1F00AFE937 /* lotto_balls.json in Resources */,
-				AAED22952921A79400AFE937 /* Luckies_Logo.json in Resources */,
 				AAA9C445292194E200918808 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -256,6 +255,7 @@
 				AA98F4402940118B00117465 /* Identifiable_Items.swift in Sources */,
 				AACC0AE629358F560039AFF1 /* LuckyModel.xcdatamodeld in Sources */,
 				AAED228C2921969100AFE937 /* BuildLottie.swift in Sources */,
+				AA17372F2D74103500E91BD0 /* RequestLimiter.swift in Sources */,
 				AA98F4422940128900117465 /* Extensions.swift in Sources */,
 				AAED22992921A8DC00AFE937 /* RandomGen.swift in Sources */,
 				AA98F43C29400F0A00117465 /* Modifiers.swift in Sources */,

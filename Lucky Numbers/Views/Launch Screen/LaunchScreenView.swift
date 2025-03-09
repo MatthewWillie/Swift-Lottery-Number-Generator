@@ -23,12 +23,10 @@ struct LaunchScreenView: View {
 
     var body: some View {
         ZStack {
-            // If you have a background image, place it here
             BackgroundView()
-            Image("Luckies_Logo")
+            Image("JackpotLogo")
                 .opacity(0.9)
 
-            // Your Lottie animation
             LottieView(
                 onAnimationComplete: nil,
                 filename: "JackpotAI_Logo",

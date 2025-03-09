@@ -9,6 +9,8 @@
 import SwiftUI
 import Lottie
 
+protocol AnimationTextProvider: Lottie.AnimationTextProvider { }
+
 struct LottieView: UIViewRepresentable {
     typealias UIViewType = UIView
     
@@ -82,10 +84,10 @@ struct LottieView: UIViewRepresentable {
     }
 }
 
-/// Provides integer-based text (e.g., 1,2,3,4,5,6) for Lottie placeholders.
+/// Provides integer-based text for Lottie placeholders.
 class TextProvider: AnimationTextProvider {
     @State var fiveBalls: [Int]
-    @State var dict: [String : String]
+    @State var dict: [String: String]
 
     init(fiveBalls: [Int]) {
         self.fiveBalls = fiveBalls
@@ -104,10 +106,10 @@ class TextProvider: AnimationTextProvider {
     }
 }
 
-/// Provides string-based text (e.g., letters) for Lottie placeholders.
+/// Provides string-based text for Lottie placeholders.
 final class WordTextProvider: AnimationTextProvider {
     @State var fiveBalls: [String]
-    @State var dict: [String : String]
+    @State var dict: [String: String]
 
     init(fiveBalls: [String]) {
         self.fiveBalls = fiveBalls
@@ -125,6 +127,7 @@ final class WordTextProvider: AnimationTextProvider {
         dict[keypathName] ?? sourceText
     }
 }
+
 
 /// Helper for creating a TextProvider from an Int array
 func randomText(random: [Int]) -> TextProvider {

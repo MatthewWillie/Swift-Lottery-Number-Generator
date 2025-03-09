@@ -7,6 +7,37 @@
 
 import SwiftUI
 
+extension View {
+    func shimmering(active: Bool) -> some View {
+        self.overlay(
+            LinearGradient(
+                gradient: Gradient(colors: [.clear, .white.opacity(0.4), .clear]),
+                startPoint: .topLeading,
+                endPoint: .bottomTrailing
+            )
+            .rotationEffect(.degrees(40))
+            .offset(x: active ? 200 : -200)
+            .mask(self)
+            .animation(.linear(duration: 2).repeatForever(autoreverses: false), value: active)
+        )
+    }
+}
+
+
+// MARK: - Conditional Modifier Extension
+extension View {
+    @ViewBuilder
+    func conditionalModifier<Content: View>(
+        _ condition: Bool,
+        modifier: (Self) -> Content
+    ) -> some View {
+        if condition {
+            modifier(self)
+        } else {
+            self
+        }
+    }
+}
 
 
 extension View {

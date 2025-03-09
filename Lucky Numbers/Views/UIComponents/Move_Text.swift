@@ -7,7 +7,6 @@
 
 import SwiftUI
 
-
 struct SparkleView: View {
     @State var isAnimating2 = false
     @State private var isRotating = 0.0
@@ -17,8 +16,10 @@ struct SparkleView: View {
             Image("sparkle")
                 .resizable()
                 .scaledToFit()
-                .frame(width: UIScreen.main.bounds.width / 11, height: UIScreen.main.bounds.width / 11)
+                .frame(width: UIScreen.main.bounds.width / 11,
+                       height: UIScreen.main.bounds.width / 11)
         }
+        .zIndex(1)
         .opacity(isAnimating2 ? 0 : 1.5)
         .scaleEffect(isAnimating2 ? 1.7 : 0.3)
         .animation(.easeOut(duration: 0.5), value: isAnimating2)
@@ -29,10 +30,11 @@ struct SparkleView: View {
                 isRotating = 200
             }
         }
-        .offset(x: UIScreen.main.bounds.width / 2.7 + 12, y: -UIScreen.main.bounds.height / 2.5 - 11)
+        .zIndex(1)
+        .offset(x: UIScreen.main.bounds.width / 2.5 + 12,
+                y: -UIScreen.main.bounds.height / 2.45 - 11)
     }
 }
-
 
 struct AnimatedTextView: View {
     let text: String
@@ -46,7 +48,7 @@ struct AnimatedTextView: View {
             .fontWeight(.bold)
             .addGlowEffect(
                 color1: Color.black,
-                color2: Color.black,
+                color2: Color("neonBlue"),
                 color3: Color.yellow
             )
             .offset(
@@ -54,7 +56,7 @@ struct AnimatedTextView: View {
                     ? UIScreen.main.bounds.width / 45
                     : -UIScreen.main.bounds.width / 45,
                 y: enabled
-                ? -UIScreen.main.bounds.height / 1.6
+                    ? -UIScreen.main.bounds.height / 1.6
                     : -UIScreen.main.bounds.height / 22
             )
             .opacity(enabled ? 0 : 1)
@@ -70,9 +72,6 @@ struct AnimatedTextView: View {
             )
     }
 }
-
-
-import SwiftUI
 
 struct MoveView: View {
     @EnvironmentObject var numberHold: NumberHold
@@ -91,18 +90,10 @@ struct MoveView: View {
     
     var body: some View {
         ZStack {
-            // Toggle SparkleView from hidden to visible
-            if toSparkle {
-                SparkleView().hidden()
-            } else {
-                SparkleView()
-            }
-            
-            // Display the texts in an HStack
+            // First, display the texts
             HStack(spacing: 0) {
                 if firstClick > 0 {
                     ForEach(0..<savedText.count, id: \.self) { index in
-                        // Pass `enabled` down to each AnimatedTextView
                         AnimatedTextView(
                             text: savedText[index],
                             index: index,
@@ -111,21 +102,26 @@ struct MoveView: View {
                     }
                 }
             }
+            // Then, overlay the SparkleView on top using a high zIndex.
+            if toSparkle {
+                SparkleView()
+                    .hidden()
+            } else {
+                SparkleView()
+            }
         }
         .onAppear {
             guard !hasAnimated else { return }
-                        hasAnimated = true
-            // 1) Flip `enabled` once for the entire group
+            hasAnimated = true
+            // Toggle the group animation.
             self.enabled.toggle()
-            
-            // 2) After 1 second, un-hide the SparkleView
+            // After 1 second, un-hide the SparkleView.
             DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
                 self.toSparkle = false
             }
         }
     }
 }
-
 
 struct MyPreview_Previews: PreviewProvider {
     static var previews: some View {
@@ -135,12 +131,11 @@ struct MyPreview_Previews: PreviewProvider {
             } else {
                 Color.green.ignoresSafeArea()
             }
-
-            BallDropButton()
-                .environmentObject(UserSettings(drawMethod: .Weighted))
-                .environmentObject(NumberHold())
-                .environmentObject(CustomRandoms())
-
+//            BallDropButton()
+//                .environmentObject(UserSettings(drawMethod: .Weighted))
+//                .environmentObject(NumberHold())
+//                .environmentObject(CustomRandoms())
+//                .environmentObject(BallDropAnimationState())
         }
     }
 }

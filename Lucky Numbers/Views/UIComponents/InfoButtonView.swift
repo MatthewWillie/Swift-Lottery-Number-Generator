@@ -12,7 +12,7 @@ import SwiftUI
 struct InfoButton: View {
     
     @State private var showSheet2 : Bool = false
-
+    
     var body: some View {
         Button(action: {
             showSheet2 = true
@@ -20,18 +20,20 @@ struct InfoButton: View {
                label: {
             HStack {
                 Text("How It Works")
-                    .font(.system(size: 15))
+                    .font(.system(size: 20))
                     .bold()
+                    .foregroundColor(.white)
                 Image(systemName: "info.circle.fill")
                     .resizable()
                     .scaledToFit()
-                    .frame(width: 18, height: 18, alignment: .trailing)
+                    .frame(width: 20, height: 20, alignment: .trailing)
+                    .foregroundColor(.white)
             }
         })
         .opacity(0.7)
         .offset(y: UIScreen.main.bounds.height/4.9)
         .buttonStyle(PlainButtonStyle())
-                
+        
         .sheet(isPresented: $showSheet2, content: {
             ZStack{
                 Image("infoBanner")
@@ -43,49 +45,82 @@ struct InfoButton: View {
                 List {
                     ZStack {
                         VStack {
-                            Text("How It Works")
-                                .font(.system(.largeTitle))
-                                .bold()
-                                .underline()
-                            Text("""
-                                *Lucky Numbers* uses three different methods to generate the best possible lotto numbers.
-                            """)
-                            .font(.custom( "Times New Roman", fixedSize: 20))
-                            .bold()
-                            .padding(10)
-//                            .frame(alignment: .center)
                             Image(systemName: "gearshape.2.fill")
                                 .resizable()
                                 .frame(width: 30, height: 30)
-                            Text("""
-                                **Lucky:**  In live lotteries, certain numbers tend to show up more frequently than others. We've gathered those stats over the past 5 years, and use them in your favor! Generating lotto numbers based on those tendancies gives you a better chance of winning!
-                                When the "Lucky" setting is selected in the bottom picker, *Lucky Numbers* uses a proprietary algorithm to randomly select lotto numbers at the same frequency that those numbers are picked in live lotteries. They're your lucky numbers!
-                            """)
-                            .font(.custom( "Times New Roman", fixedSize: 20))
-                            .padding(10)
-                            Image(systemName: "gearshape.2.fill")
-                                .resizable()
-                                .frame(width: 30, height: 30)
-                            Text("""
-                                **Random:**  When the "Random" setting is selected, numbers are generated on a completely random basis. It's Chance!
+                            VStack(alignment: .leading, spacing: 10) {
+                                Text("JackpotAI")
+                                    .font(.custom("Times New Roman", fixedSize: 24))
+                                    .bold()
+                                    .multilineTextAlignment(.center)
+                                    .frame(maxWidth: .infinity)
+
+                                Text("JackpotAI is your ultimate AI-powered lottery companion, built to help you make smarter number selections using cutting-edge data analysis.")
+                                    .font(.custom("Times New Roman", fixedSize: 20))
+
+                                Text("AI Mode (Premium)")
+                                    .font(.custom("Times New Roman", fixedSize: 22))
+                                    .bold()
+                                    .multilineTextAlignment(.center)
+                                    .frame(maxWidth: .infinity)
+
+                                Text("""
+                                **Advanced Game-Specific Predictions:**  
+                                Unlike any other number generator, **JackpotAI’s AI Mode deeply analyzes each individual lottery game** (Powerball, Mega Millions, EuroMillions, etc.) to **identify the numbers with the highest probability of being drawn**.  
+                                - AI Mode uses **machine learning and historical data** to detect **hot numbers, cold numbers, and overdue trends** for each specific lottery.  
+                                - Every AI-generated set is tailored **to that game’s unique draw history**, ensuring **you get the most optimized numbers possible**.  
+                                - This is the **most advanced lottery prediction model available**, designed for serious players who want the best statistical edge.
                                 """)
-                            .font(.custom( "Times New Roman", fixedSize: 20))
-                            .padding(10)
-                            Image(systemName: "gearshape.2.fill")
-                                .resizable()
-                                .frame(width: 30, height: 30)
-                            Text("""
-                                **Custom:**  When the "Custom" setting is selected, you take chance into your own hands!
-                                Click on the "Custom" tab, and enter any of your preferred lucky numbers. You can use any whole numbers between 1 and 70, such as birthdays, 2-digit years, your age, or any other numbers you'd like. Your numbers are then given a weighted value, and new lotto numbers are generated, making your custom numbers as the most likely numbers to appear.
-                            
-                            """)
-                            .font(.custom( "Times New Roman", fixedSize: 20))
-                            .padding(10)
+                                .font(.custom("Times New Roman", fixedSize: 20))
+
+                                Text("Free Mode")
+                                    .font(.custom("Times New Roman", fixedSize: 22))
+                                    .bold()
+                                    .multilineTextAlignment(.center)
+                                    .frame(maxWidth: .infinity)
+
+                                Text("""
+                                **Smart Weighted Picks:**  
+                                A great starting point! Free Mode **blends historical lottery data with randomness** for a balanced number selection:  
+                                - JackpotAI **tracks frequently drawn numbers across multiple games** and **weights** them into each selection.  
+                                - While not as advanced as AI Mode, Free Mode ensures **your numbers reflect real-world trends**, rather than pure randomness.
+                                """)
+                                .font(.custom("Times New Roman", fixedSize: 20))
+
+                                Text("Your Jackpot Starts Here!")
+                                    .font(.custom("Times New Roman", fixedSize: 22))
+                                    .bold()
+                                    .multilineTextAlignment(.center)
+                                    .frame(maxWidth: .infinity)
+
+                                Text("Ready to improve your lottery strategy? Try JackpotAI and let **data work in your favor.**")
+                                    .font(.custom("Times New Roman", fixedSize: 20))
+                                
+                                // Legal Disclaimer Section
+                                   Text("Disclaimer")
+                                       .font(.custom("Times New Roman", fixedSize: 18))
+                                       .bold()
+                                       .multilineTextAlignment(.center)
+                                       .frame(maxWidth: .infinity)
+                                       .padding(.top, 10)
+
+                                   Text("""
+                                   JackpotAI is a fun and educational tool designed to enhance your lottery experience. While we analyze real historical data to generate numbers, we cannot guarantee winnings (we wish we could!).  
+                                   Play responsibly, and remember—every number has an equal chance of winning, no matter what the AI says! 🎲🍀  
+                                   """)
+                                   .font(.custom("Times New Roman", fixedSize: 16))
+                                   .italic()
+                                   .multilineTextAlignment(.leading)
+                                   .foregroundColor(.black)
+                            }
+                            .padding(.horizontal, 10)
+
+                            .font(.custom("Times New Roman", fixedSize: 20))
                         }
                     }
                     .listRowBackground(Color.clear)
                 }
-                .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height/1.5)
+                .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height/1.7)
                 .background(BackgroundClearView())
                 .scrollContentBackground(.hidden)
                 
@@ -94,6 +129,8 @@ struct InfoButton: View {
                 .offset(y: 20)
                 
                 Button(action: {
+                    let impactFeedback = UIImpactFeedbackGenerator(style: .light)
+                    impactFeedback.impactOccurred()
                     showSheet2 = false
                 }
                        ,label: {
@@ -105,12 +142,14 @@ struct InfoButton: View {
                 })
                 .padding(13)
                 .padding()
-                .offset(y: UIScreen.main.bounds.height/2.45)
+                .offset(y: UIScreen.main.bounds.height/2.8)
             }
             .preferredColorScheme(.light)
-            .background(Color("lightGreen"))
+            .offset(y: UIScreen.main.bounds.height / -12)
         })
-        
     }
 }
 
+#Preview {
+    InfoButton()
+}

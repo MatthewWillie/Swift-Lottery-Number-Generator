@@ -7,6 +7,34 @@
 
 import SwiftUI
 
+extension View {
+    func premiumGlow(color: Color, radius: CGFloat = 10) -> some View {
+        self.shadow(color: color.opacity(0.6), radius: radius)
+            .shadow(color: color.opacity(0.4), radius: radius / 2)
+    }
+}
+
+/// A view modifier that applies a pulsing glow effect.
+struct GlowingEffect: ViewModifier {
+    let glowColor: Color
+    @State private var glow = false
+
+    func body(content: Content) -> some View {
+        content
+            .shadow(color: glowColor.opacity(glow ? 0.9 : 0.3), radius: glow ? 20 : 10)
+            .onAppear {
+                withAnimation(Animation.easeInOut(duration: 1.0).repeatForever(autoreverses: true)) {
+                    glow.toggle()
+                }
+            }
+    }
+}
+
+extension View {
+    func glowing(with color: Color) -> some View {
+        self.modifier(GlowingEffect(glowColor: color))
+    }
+}
 
 
 struct PressActions: ViewModifier {

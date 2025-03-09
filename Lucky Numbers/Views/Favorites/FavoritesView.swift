@@ -22,17 +22,27 @@ struct FavoritesView: View {
         
         ZStack{
             Button(action: {
+                let impactFeedback = UIImpactFeedbackGenerator(style: .light)
+                impactFeedback.impactOccurred()
                 DispatchQueue.main.async {
                     self.showSheet = true
                 }
             }){
-                Image("heart")
-                    .resizable()
-                    .scaledToFit()
+                VStack(spacing: -2){
+                    Image("heart")
+                        .resizable()
+                        .scaledToFit()
+                    Text("Favorites")
+                        .font(.system(size: 12))
+                        .foregroundColor(Color("gold"))
+                        .shadow(color: Color("black").opacity(0.1), radius: 1, x: 2, y: 2)
+                }
             }
-            .frame(width:  UIScreen.main.bounds.width/8, height:  UIScreen.main.bounds.width/8)
+            .buttonStyle(PressableButtonStyle())
+            .frame(width:  UIScreen.main.bounds.width/6.5, height:  UIScreen.main.bounds.width/6.5)
             .shadow(color: Color("neonBlue").opacity(0.7), radius: 5, x: 1, y: 2)
-            .shadow(color: Color("black").opacity(0.7), radius: 12, x: 3, y: 12)            .offset(x: -UIScreen.main.bounds.width/2.8, y: -UIScreen.main.bounds.height/2.5)
+            .shadow(color: Color("black").opacity(0.7), radius: 8, x: 3, y: 12)
+            .offset(x: UIScreen.main.bounds.width / -3.3, y: -UIScreen.main.bounds.height / -5.5)
 
             .fullScreenCover(isPresented: $showSheet, content: {
                 NavigationView {
@@ -48,6 +58,8 @@ struct FavoritesView: View {
                         
                         Spacer()
                         Button(action: {
+                            let impactFeedback = UIImpactFeedbackGenerator(style: .light)
+                            impactFeedback.impactOccurred()
                             self.showSheet = false
                             
                         }, label: {

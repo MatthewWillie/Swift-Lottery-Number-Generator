@@ -107,44 +107,35 @@ struct DeleteButton: View {
 struct CoinView: View {
     @State var likes: [LikeView] = []
     @Environment(\.editMode) private var editMode
-
-    func likeAction() {
-        likes += [LikeView()]
-    }
     @EnvironmentObject var numberHold: NumberHold
     @AppStorage(UserKeys.userNumber.rawValue) var albums: Data = Data()
     @State private var selected: UUID = UUID()
-
     @State private var isAnimating: Bool = false
     @State private var num: Int = 0
     @State private var showSheet: Bool = false
-
     @State private var donePressed: Bool = false
     @State private var plusPressed: Bool = false
 
     @Binding var savedArray: [CoinListItem]
-    @Binding var firstClick: Int
 
     var body: some View {
-
         CoinButton(action: {
+            let impactFeedback = UIImpactFeedbackGenerator(style: .light)
+            impactFeedback.impactOccurred()
             likes = []
             DispatchQueue.main.async {
                 self.showSheet = true
             }
         }) { }
-        .buttonStyle(PlainButtonStyle())
+        .buttonStyle(PressableButtonStyle())
         .sheet(isPresented: $showSheet, content: {
             NavigationView {
                 ZStack {
-                    // The VisualEffectBlur creates the clear blurred background
-                    // Overlay a dark blue color tint
                     Color("darkBlue").opacity(0.4).ignoresSafeArea()
                     VisualEffectBlur(blurStyle: .systemUltraThinMaterialDark, opacity: 0.9).ignoresSafeArea()
 
                     VStack {
                         ZStack {
-                            // Removed the original empty Color() background
                             Image("banner")
                                 .resizable()
                                 .scaledToFit()
@@ -153,6 +144,8 @@ struct CoinView: View {
 
                             Spacer()
                             Button(action: {
+                                let impactFeedback = UIImpactFeedbackGenerator(style: .light)
+                                impactFeedback.impactOccurred()
                                 self.showSheet = false
                             }, label: {
                                 Image("doneButton")
@@ -175,32 +168,35 @@ struct CoinView: View {
                                 List {
                                     Section(header: Text("")) {
                                         ForEach(savedArray) { i in
-                                            if firstClick > 1 {
-                                                HStack {
-                                                    Text(i.lottoNumbers)
-                                                        .lineLimit(1)
-                                                        .bold()
-                                                        .font(.custom("Times New Roman", fixedSize: 25))
-                                                        .padding(.vertical, 10)
-                                                        .padding(0)
-                                                    Spacer()
-
-                                                    DeleteButton(likes: $likes, i: i, number: i, numbers: $savedArray, onDelete: removeRows)
-                                                        .padding(0)
-                                                        .pressAction {
-                                                            selected = i.id
-                                                            plusPressed = true
-                                                        } onRelease: {
-                                                            selected = UUID()
-                                                            plusPressed = false
-                                                        }
+                                            HStack {
+                                                Text(i.lottoNumbers)
+                                                    .lineLimit(1)
+                                                    .bold()
+                                                    .font(.custom("Times New Roman", fixedSize: 25))
+                                                    .padding(.vertical, 10)
+                                                    .padding(0)
+                                                Spacer()
+                                                DeleteButton(
+                                                    likes: $likes,
+                                                    i: i,
+                                                    number: i,
+                                                    numbers: $savedArray,
+                                                    onDelete: removeRows
+                                                )
+                                                .padding(0)
+                                                .pressAction {
+                                                    selected = i.id
+                                                    plusPressed = true
+                                                } onRelease: {
+                                                    selected = UUID()
+                                                    plusPressed = false
                                                 }
-                                                .listRowSeparatorTint(.black)
-                                                .padding(.horizontal)
-                                                .edgesIgnoringSafeArea(.leading)
-                                                .edgesIgnoringSafeArea(.trailing)
-                                                .opacity(selected == i.id ? 0.3 : 1)
                                             }
+                                            .listRowSeparatorTint(.black)
+                                            .padding(.horizontal)
+                                            .edgesIgnoringSafeArea(.leading)
+                                            .edgesIgnoringSafeArea(.trailing)
+                                            .opacity(selected == i.id ? 0.3 : 1)
                                         }
                                         .onDelete(perform: removeRows)
                                         .multilineTextAlignment(.leading)
@@ -213,8 +209,6 @@ struct CoinView: View {
                                 .scrollContentBackground(.hidden)
                                 .shadow(color: .black.opacity(0.5), radius: 20)
                                 .frame(height: 320)
-                                .offset(y: 0)
-                                .padding(.leading, 0)
                                 .toolbar {
                                     EditButton()
                                         .bold()
@@ -245,7 +239,6 @@ struct CoinView: View {
                             .padding()
                             .offset(y: -UIScreen.main.bounds.height / 25)
                             .multilineTextAlignment(.center)
-
                     }
                 }
                 .background(BackgroundClearView())
@@ -257,35 +250,20 @@ struct CoinView: View {
     func removeRows(at offsets: IndexSet) {
         savedArray.remove(atOffsets: offsets)
     }
-    func getStrings(data: Data) -> [String] {
-        return Storage.loadStringArray(data: data)
-    }
-    func addAlbum() {
-        var tmpAlbums = getStrings(data: albums)
-        for i in savedArray {
-            tmpAlbums.append("\(i)")
-        }
-        albums = Storage.archiveStringArray(object: tmpAlbums)
-    }
 }
 
 
 
-struct MyView_Previews: PreviewProvider {
-    static var previews: some View {
-
-        ZStack {
-            BackgroundView()
-//            InfoButton()
-            BallDropButton()
-                .environmentObject(NumberHold())
-                .environmentObject(UserSettings(drawMethod: .Weighted))
-                .environmentObject(CustomRandoms())
-
-//            FavoritesView()
-
-        }
-    }
+#Preview {
+    CoinView(
+        savedArray: .constant([
+            CoinListItem(lottoNumbers: "5 - 12 - 23 - 34 - 56 | 9"),
+            CoinListItem(lottoNumbers: "7 - 14 - 21 - 28 - 35 | 10"),
+            CoinListItem(lottoNumbers: "3 - 11 - 18 - 26 - 39 | 15")
+        ])
+    )
+    .environmentObject(NumberHold())
+    .background(Color("darkBlue").ignoresSafeArea())
 }
 
 

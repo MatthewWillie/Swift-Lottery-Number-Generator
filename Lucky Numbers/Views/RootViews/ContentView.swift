@@ -8,31 +8,37 @@ import SwiftUI
 
 struct ContentView: View {
     @StateObject var controller = ViewControl()
-    @State private var selectedTab: Tab = .home // Track selected tab
+    @State private var selectedTab: Tab = .home // Track selected tab (ensure Tab is defined elsewhere)
+    @State private var animationFinished = false // Track animation completion
 
     var body: some View {
         NavigationView {
             ZStack {
-                // Background color
-                Color.black
-                    .ignoresSafeArea()
-
-                // Display content based on selected tab
-                switch selectedTab {
-                case .home:
-                    AppFlowView()
-                case .results:
-                    LotteryResultsView()
-                case .settings:
-                    SettingsView()
+                Color.black.ignoresSafeArea()
+                
+                if animationFinished {
+                    // Display content based on selected tab AFTER animation finishes
+                    switch selectedTab {
+                    case .home:
+                        AppFlowView()
+                    case .results:
+                        LotteryResultsView()
+                    case .settings:
+                        InfoButton()
+                    }
+                } else {
+                    // Show animation first
+                    HomeAnimationsView(animationFinished: $animationFinished)
                 }
 
-                // Custom Tab Bar at the bottom
-                VStack {
-                    Spacer()
-                    CustomTabBar(selectedTab: $selectedTab)
+                // Custom Tab Bar at the bottom (only when animation is done)
+                if animationFinished {
+                    VStack {
+                        Spacer()
+                        CustomTabBar(selectedTab: $selectedTab)
+                    }
+                    .edgesIgnoringSafeArea(.bottom)
                 }
-                .edgesIgnoringSafeArea(.bottom)
             }
             // Global Navigation Bar settings
             .navigationBarBackButtonHidden(true)
@@ -43,7 +49,6 @@ struct ContentView: View {
     }
 }
 
-// MARK: - Preview
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
@@ -51,5 +56,6 @@ struct ContentView_Previews: PreviewProvider {
             .environmentObject(NumberHold())
             .environmentObject(UserSettings(drawMethod: .Weighted))
             .environmentObject(CustomRandoms())
+            .environmentObject(BallDropAnimationState())  // Inject BallDropAnimationState
     }
 }
