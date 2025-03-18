@@ -23,6 +23,7 @@
 		AA9A75592D888CAF0015F83A /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = AA9A75582D888CAF0015F83A /* FirebaseMessaging */; };
 		AA9A755B2D888CAF0015F83A /* FirebasePerformance in Frameworks */ = {isa = PBXBuildFile; productRef = AA9A755A2D888CAF0015F83A /* FirebasePerformance */; };
 		AA9A755D2D888CAF0015F83A /* FirebaseRemoteConfig in Frameworks */ = {isa = PBXBuildFile; productRef = AA9A755C2D888CAF0015F83A /* FirebaseRemoteConfig */; };
+		AA9A75DF2D89F56D0015F83A /* APIConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA9A75DE2D89F5660015F83A /* APIConfig.swift */; };
 		AAA9C445292194E200918808 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AAA9C444292194E200918808 /* Assets.xcassets */; };
 		AAA9C448292194E200918808 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AAA9C447292194E200918808 /* Preview Assets.xcassets */; };
 		AAA9C450292195CC00918808 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = AAA9C44F292195CC00918808 /* Lottie */; };
@@ -43,6 +44,7 @@
 		AA98F43F2940118B00117465 /* Identifiable_Items.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Identifiable_Items.swift; sourceTree = "<group>"; };
 		AA98F4412940128900117465 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		AA9A753D2D87E70E0015F83A /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		AA9A75DE2D89F5660015F83A /* APIConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIConfig.swift; sourceTree = "<group>"; };
 		AAA9C43D292194E100918808 /* JackpotAI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JackpotAI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AAA9C444292194E200918808 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AAA9C447292194E200918808 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -105,6 +107,7 @@
 		AA1E87D9294021DA0080C276 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				AA9A75DE2D89F5660015F83A /* APIConfig.swift */,
 				AA17372E2D74102F00E91BD0 /* RequestLimiter.swift */,
 				AAED22982921A8DC00AFE937 /* RandomGen.swift */,
 				AAED228B2921969100AFE937 /* BuildLottie.swift */,
@@ -279,6 +282,7 @@
 				AA98F4422940128900117465 /* Extensions.swift in Sources */,
 				AAED22992921A8DC00AFE937 /* RandomGen.swift in Sources */,
 				AA98F43C29400F0A00117465 /* Modifiers.swift in Sources */,
+				AA9A75DF2D89F56D0015F83A /* APIConfig.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
