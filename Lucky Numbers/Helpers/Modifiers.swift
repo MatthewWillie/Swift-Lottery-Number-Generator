@@ -7,6 +7,23 @@
 
 import SwiftUI
 
+// UIKit-based VisualEffectBlur Wrapper
+struct VisualEffectBlur: UIViewRepresentable {
+    var blurStyle: UIBlurEffect.Style
+    var opacity: CGFloat  // Allows us to control transparency
+    
+    func makeUIView(context: Context) -> UIVisualEffectView {
+        let blurEffect = UIBlurEffect(style: blurStyle)
+        let blurView = UIVisualEffectView(effect: blurEffect)
+        blurView.alpha = opacity
+        return blurView
+    }
+    
+    func updateUIView(_ uiView: UIVisualEffectView, context: Context) {
+        uiView.alpha = opacity
+    }
+}
+
 extension View {
     func premiumGlow(color: Color, radius: CGFloat = 10) -> some View {
         self.shadow(color: color.opacity(0.6), radius: radius)

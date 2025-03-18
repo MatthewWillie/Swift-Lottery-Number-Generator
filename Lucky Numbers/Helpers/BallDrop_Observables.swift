@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-
+//
 class CustomRandoms: ObservableObject {
     
     @Published var dict2 = [0,0,0,0,0,0]

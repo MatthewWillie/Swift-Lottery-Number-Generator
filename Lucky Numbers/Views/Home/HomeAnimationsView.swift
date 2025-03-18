@@ -17,7 +17,7 @@ struct HomeAnimationsView: View {
         }
         .onAppear {
             // Dismiss the launch screen after 1.8 seconds
-            DispatchQueue.main.asyncAfter(deadline: .now() + 2.5) {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1.8) {
                 animationFinished = true
             }
         }

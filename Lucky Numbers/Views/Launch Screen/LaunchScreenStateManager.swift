@@ -7,15 +7,20 @@
 
 import Foundation
 
-final class LaunchScreenStateManager: ObservableObject {    @MainActor
+enum LaunchScreenStep {
+    case firstStep, secondStep, finished
+}
+
+@MainActor
+final class LaunchScreenStateManager: ObservableObject {
     @Published private(set) var state: LaunchScreenStep = .firstStep
-    @MainActor
+    
     func dismiss() {
         Task {
-        state = .secondStep
-        try? await Task.sleep(for: Duration.seconds(1))
-        self.state = .finished
-            
+            state = .secondStep
+            try? await Task.sleep(for: .seconds(1))
+            self.state = .finished
         }
     }
 }
+

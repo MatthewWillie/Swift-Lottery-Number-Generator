@@ -4,69 +4,124 @@
 //
 //  Created by Matt Willie on 2/17/25.
 //
-
 import SwiftUI
 import Combine
+import AppTrackingTransparency
+import AdSupport
+import Firebase
+import FirebaseCrashlytics
 
+// MARK: - App Delegate
 class AppDelegate: NSObject, UIApplicationDelegate {
-    func application(_ application: UIApplication,
-                     didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
+    func application(
+        _ application: UIApplication,
+        didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]? = nil
+    ) -> Bool {
         print("App Did Launch!")
+        
+        // Configure services
+        setupFirebase()
+        requestTrackingPermission()
+        
         return true
     }
     
-    func application(_ application: UIApplication,
-                     configurationForConnecting connectingSceneSession: UISceneSession,
-                     options: UIScene.ConnectionOptions) -> UISceneConfiguration {
-        let sceneConfig = UISceneConfiguration(name: nil, sessionRole: connectingSceneSession.role)
-        sceneConfig.delegateClass = SceneDelegate.self
-        return sceneConfig
+    // MARK: - Setup Methods
+    
+    private func setupFirebase() {
+        FirebaseApp.configure()
+        Analytics.setAnalyticsCollectionEnabled(true)
+        Crashlytics.crashlytics().setCrashlyticsCollectionEnabled(true)
+    }
+    
+    private func requestTrackingPermission() {
+        guard ATTrackingManager.trackingAuthorizationStatus == .notDetermined else {
+            print("🚫 ATT already requested, skipping request")
+            return
+        }
+
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+            ATTrackingManager.requestTrackingAuthorization { [weak self] status in
+                self?.handleTrackingAuthorizationResponse(status)
+            }
+        }
+    }
+    
+    private func handleTrackingAuthorizationResponse(_ status: ATTrackingManager.AuthorizationStatus) {
+        switch status {
+        case .authorized:
+            print("✅ Tracking authorized")
+        case .denied:
+            print("❌ Tracking denied")
+        case .notDetermined:
+            print("⚠️ Tracking not determined")
+        case .restricted:
+            print("⚠️ Tracking restricted")
+        @unknown default:
+            print("⚠️ Unknown tracking status")
+        }
     }
 }
 
-// Persistence
-class Storage: NSObject {
+// MARK: - Persistence
+class Storage {
+    enum StorageError: Error {
+        case encodingFailed(Error)
+        case decodingFailed(Error)
+        case invalidData
+        
+        var localizedDescription: String {
+            switch self {
+            case .encodingFailed(let error):
+                return "Failed to encode data: \(error.localizedDescription)"
+            case .decodingFailed(let error):
+                return "Failed to decode data: \(error.localizedDescription)"
+            case .invalidData:
+                return "Invalid data format"
+            }
+        }
+    }
+    
     static func archiveStringArray(object: [String]) -> Data {
         do {
             let data = try NSKeyedArchiver.archivedData(withRootObject: object, requiringSecureCoding: false)
             return data
         } catch {
-            fatalError("Can't encode data: \(error)")
+            print("❌ Encoding error: \(error.localizedDescription)")
+            // Return empty data instead of crashing with fatalError
+            return Data()
         }
     }
     
     static func loadStringArray(data: Data) -> [String] {
+        guard !data.isEmpty else { return [] }
+        
         do {
             guard let array = try NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(data) as? [String] else {
+                print("❌ Invalid data format when unarchiving")
                 return []
             }
             return array
         } catch {
-            fatalError("loadStringArray - Can't decode data: \(error)")
+            print("❌ Decoding error: \(error.localizedDescription)")
+            return []
         }
     }
 }
 
+// MARK: - Main App
 @main
 struct Lucky_NumbersApp: App {
-    init() {
-        let appearance = UITabBarAppearance()
-        appearance.configureWithOpaqueBackground()
-        appearance.backgroundColor = UIColor.black.withAlphaComponent(0.8)
-        
-        UITabBar.appearance().standardAppearance = appearance
-        if #available(iOS 15.0, *) {
-            UITabBar.appearance().scrollEdgeAppearance = appearance
-        }
-    }
-
-    @StateObject var launchScreenState = LaunchScreenStateManager()
-    @StateObject var numberHold = NumberHold()
-    @StateObject var userSettings = UserSettings(drawMethod: .Weighted)
-    @StateObject var custom = CustomRandoms()
-    @StateObject var animationState = BallDropAnimationState()
-    @StateObject var iapManager = IAPManager.shared           // ✅ IAP Manager globally
-    @StateObject var subscriptionTracker = SubscriptionTracker() // ✅ Add SubscriptionTracker here
+    @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
+    
+    // App State Objects
+    @StateObject private var launchScreenState = LaunchScreenStateManager()
+    @StateObject private var numberHold = NumberHold()
+    @StateObject private var userSettings = UserSettings(drawMethod: .Weighted)
+    @StateObject private var custom = CustomRandoms()
+//    @StateObject private var animationState = BallDropAnimationState()
+    @StateObject private var iapManager = IAPManager.shared
+    @StateObject private var subscriptionTracker = SubscriptionTracker()
 
     var body: some Scene {
         WindowGroup {
@@ -76,9 +131,9 @@ struct Lucky_NumbersApp: App {
                         .environmentObject(numberHold)
                         .environmentObject(userSettings)
                         .environmentObject(custom)
-                        .environmentObject(animationState)
-                        .environmentObject(iapManager)          // ✅ Inject IAPManager
-                        .environmentObject(subscriptionTracker) // ✅ Inject SubscriptionTracker
+//                        .environmentObject(animationState)
+                        .environmentObject(iapManager)
+                        .environmentObject(subscriptionTracker)
 
                     if launchScreenState.state != .finished {
                         LaunchScreenView()
@@ -91,13 +146,15 @@ struct Lucky_NumbersApp: App {
     }
 }
 
+// MARK: - Preview Helpers
 struct RootViewForPreview: View {
-    @StateObject var launchScreenState = LaunchScreenStateManager()
-    @StateObject var numberHold = NumberHold()
-    @StateObject var userSettings = UserSettings(drawMethod: .Weighted)
-    @StateObject var custom = CustomRandoms()
-    @StateObject var animationState = BallDropAnimationState()
-    @StateObject var subscriptionTracker = SubscriptionTracker() // ✅ Added here for Preview
+    // State Objects for preview
+    @StateObject private var launchScreenState = LaunchScreenStateManager()
+    @StateObject private var numberHold = NumberHold()
+    @StateObject private var userSettings = UserSettings(drawMethod: .Weighted)
+    @StateObject private var custom = CustomRandoms()
+    @StateObject private var iapManager = IAPManager.shared
+    @StateObject private var subscriptionTracker = SubscriptionTracker()
 
     var body: some View {
         NavigationView {
@@ -106,8 +163,8 @@ struct RootViewForPreview: View {
                     .environmentObject(numberHold)
                     .environmentObject(userSettings)
                     .environmentObject(custom)
-                    .environmentObject(animationState)
-                    .environmentObject(subscriptionTracker) // ✅ Inject for preview as well
+                    .environmentObject(iapManager)
+                    .environmentObject(subscriptionTracker)
 
                 if launchScreenState.state != .finished {
                     LaunchScreenView()
@@ -118,13 +175,15 @@ struct RootViewForPreview: View {
         .environmentObject(launchScreenState)
     }
 }
-// ✅ **Ensure Preview Uses `RootViewForPreview` Correctly**
+
+// MARK: - Preview Provider
 struct Lucky_NumbersApp_Previews: PreviewProvider {
     static var previews: some View {
         RootViewForPreview()
-            .environmentObject(BallDropAnimationState())  // ✅ Ensures preview gets animation state
             .environmentObject(UserSettings(drawMethod: .Weighted))
             .environmentObject(NumberHold())
             .environmentObject(CustomRandoms())
+            .environmentObject(IAPManager.shared)
+            .environmentObject(SubscriptionTracker())
     }
 }

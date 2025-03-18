@@ -16,6 +16,13 @@
 		AA98F43E2940102E00117465 /* BallDrop_Observables.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA98F43D2940102E00117465 /* BallDrop_Observables.swift */; };
 		AA98F4402940118B00117465 /* Identifiable_Items.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA98F43F2940118B00117465 /* Identifiable_Items.swift */; };
 		AA98F4422940128900117465 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA98F4412940128900117465 /* Extensions.swift */; };
+		AA9A753E2D87E70E0015F83A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = AA9A753D2D87E70E0015F83A /* GoogleService-Info.plist */; };
+		AA9A75532D888CAF0015F83A /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = AA9A75522D888CAF0015F83A /* FirebaseAnalytics */; };
+		AA9A75552D888CAF0015F83A /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = AA9A75542D888CAF0015F83A /* FirebaseAuth */; };
+		AA9A75572D888CAF0015F83A /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = AA9A75562D888CAF0015F83A /* FirebaseCrashlytics */; };
+		AA9A75592D888CAF0015F83A /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = AA9A75582D888CAF0015F83A /* FirebaseMessaging */; };
+		AA9A755B2D888CAF0015F83A /* FirebasePerformance in Frameworks */ = {isa = PBXBuildFile; productRef = AA9A755A2D888CAF0015F83A /* FirebasePerformance */; };
+		AA9A755D2D888CAF0015F83A /* FirebaseRemoteConfig in Frameworks */ = {isa = PBXBuildFile; productRef = AA9A755C2D888CAF0015F83A /* FirebaseRemoteConfig */; };
 		AAA9C445292194E200918808 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AAA9C444292194E200918808 /* Assets.xcassets */; };
 		AAA9C448292194E200918808 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AAA9C447292194E200918808 /* Preview Assets.xcassets */; };
 		AAA9C450292195CC00918808 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = AAA9C44F292195CC00918808 /* Lottie */; };
@@ -35,7 +42,8 @@
 		AA98F43D2940102E00117465 /* BallDrop_Observables.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BallDrop_Observables.swift; sourceTree = "<group>"; };
 		AA98F43F2940118B00117465 /* Identifiable_Items.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Identifiable_Items.swift; sourceTree = "<group>"; };
 		AA98F4412940128900117465 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
-		AAA9C43D292194E100918808 /* Lucky Numbers.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Lucky Numbers.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		AA9A753D2D87E70E0015F83A /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		AAA9C43D292194E100918808 /* JackpotAI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JackpotAI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AAA9C444292194E200918808 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AAA9C447292194E200918808 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		AACC0AE529358F560039AFF1 /* LuckyModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = LuckyModel.xcdatamodel; sourceTree = "<group>"; };
@@ -56,7 +64,6 @@
 		AA2E3FAE2D6AC6AB0062BC1F /* Favorites */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Favorites; sourceTree = "<group>"; };
 		AA2E3FAF2D6AC77E0062BC1F /* Managers */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Managers; sourceTree = "<group>"; };
 		AA2E3FB02D6AC7BF0062BC1F /* App */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = App; sourceTree = "<group>"; };
-		AA2E3FB12D6AC8520062BC1F /* Models */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Models; sourceTree = "<group>"; };
 		AA2E3FB22D6AC8C60062BC1F /* RootViews */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = RootViews; sourceTree = "<group>"; };
 /* End PBXFileSystemSynchronizedRootGroup section */
 
@@ -65,8 +72,14 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AA9A755D2D888CAF0015F83A /* FirebaseRemoteConfig in Frameworks */,
 				AA2126362D63FEDC00BD5918 /* StoreKit.framework in Frameworks */,
+				AA9A75552D888CAF0015F83A /* FirebaseAuth in Frameworks */,
+				AA9A75592D888CAF0015F83A /* FirebaseMessaging in Frameworks */,
 				AA6299722D62A6CA0013D2B9 /* GoogleMobileAds in Frameworks */,
+				AA9A75572D888CAF0015F83A /* FirebaseCrashlytics in Frameworks */,
+				AA9A75532D888CAF0015F83A /* FirebaseAnalytics in Frameworks */,
+				AA9A755B2D888CAF0015F83A /* FirebasePerformance in Frameworks */,
 				AAA9C450292195CC00918808 /* Lottie in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -127,7 +140,7 @@
 		AAA9C43E292194E100918808 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				AAA9C43D292194E100918808 /* Lucky Numbers.app */,
+				AAA9C43D292194E100918808 /* JackpotAI.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -135,7 +148,6 @@
 		AAA9C43F292194E100918808 /* Lucky Numbers */ = {
 			isa = PBXGroup;
 			children = (
-				AA2E3FB12D6AC8520062BC1F /* Models */,
 				AA2E3FB02D6AC7BF0062BC1F /* App */,
 				AA2E3FAF2D6AC77E0062BC1F /* Managers */,
 				AA1E87D9294021DA0080C276 /* Helpers */,
@@ -143,6 +155,7 @@
 				AAED229329219B9A00AFE937 /* Lucky-Numbers-Info.plist */,
 				AAA9C446292194E200918808 /* Preview Content */,
 				AAA9C444292194E200918808 /* Assets.xcassets */,
+				AA9A753D2D87E70E0015F83A /* GoogleService-Info.plist */,
 				AACC0AE429358F560039AFF1 /* LuckyModel.xcdatamodeld */,
 			);
 			path = "Lucky Numbers";
@@ -159,9 +172,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		AAA9C43C292194E100918808 /* Lucky Numbers */ = {
+		AAA9C43C292194E100918808 /* JackpotAI */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = AAA9C44B292194E200918808 /* Build configuration list for PBXNativeTarget "Lucky Numbers" */;
+			buildConfigurationList = AAA9C44B292194E200918808 /* Build configuration list for PBXNativeTarget "JackpotAI" */;
 			buildPhases = (
 				AAA9C439292194E100918808 /* Sources */,
 				AAA9C43A292194E100918808 /* Frameworks */,
@@ -181,16 +194,21 @@
 				AA2E3FAE2D6AC6AB0062BC1F /* Favorites */,
 				AA2E3FAF2D6AC77E0062BC1F /* Managers */,
 				AA2E3FB02D6AC7BF0062BC1F /* App */,
-				AA2E3FB12D6AC8520062BC1F /* Models */,
 				AA2E3FB22D6AC8C60062BC1F /* RootViews */,
 			);
-			name = "Lucky Numbers";
+			name = JackpotAI;
 			packageProductDependencies = (
 				AAA9C44F292195CC00918808 /* Lottie */,
 				AA6299712D62A6CA0013D2B9 /* GoogleMobileAds */,
+				AA9A75522D888CAF0015F83A /* FirebaseAnalytics */,
+				AA9A75542D888CAF0015F83A /* FirebaseAuth */,
+				AA9A75562D888CAF0015F83A /* FirebaseCrashlytics */,
+				AA9A75582D888CAF0015F83A /* FirebaseMessaging */,
+				AA9A755A2D888CAF0015F83A /* FirebasePerformance */,
+				AA9A755C2D888CAF0015F83A /* FirebaseRemoteConfig */,
 			);
 			productName = "Lucky Numbers";
-			productReference = AAA9C43D292194E100918808 /* Lucky Numbers.app */;
+			productReference = AAA9C43D292194E100918808 /* JackpotAI.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -220,12 +238,13 @@
 			packageReferences = (
 				AAA9C44E292195CC00918808 /* XCRemoteSwiftPackageReference "lottie-ios" */,
 				AA6299702D62A6CA0013D2B9 /* XCRemoteSwiftPackageReference "swift-package-manager-google-mobile-ads" */,
+				AA9A75512D888CAF0015F83A /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 			);
 			productRefGroup = AAA9C43E292194E100918808 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				AAA9C43C292194E100918808 /* Lucky Numbers */,
+				AAA9C43C292194E100918808 /* JackpotAI */,
 			);
 		};
 /* End PBXProject section */
@@ -241,6 +260,7 @@
 				AA2E3FC02D6D30EE0062BC1F /* JackpotAI_Logo.json in Resources */,
 				AAED229229219A1F00AFE937 /* lotto_balls.json in Resources */,
 				AAA9C445292194E200918808 /* Assets.xcassets in Resources */,
+				AA9A753E2D87E70E0015F83A /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -298,7 +318,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
-				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
@@ -391,14 +411,14 @@
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				"ASSETCATALOG_COMPILER_OPTIMIZATION[sdk=iphonesimulator*]" = "";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3.0.1;
+				CURRENT_PROJECT_VERSION = 4.0.2;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"Lucky Numbers/Preview Content\"";
 				DEVELOPMENT_TEAM = R8362KYW8Q;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Lucky-Numbers-Info.plist";
-				INFOPLIST_KEY_CFBundleDisplayName = "Lucky Numbers";
+				INFOPLIST_KEY_CFBundleDisplayName = JackpotAI;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.entertainment";
 				INFOPLIST_KEY_NSUserTrackingUsageDescription = "This app uses tracking to provide personalized ads and improve user experience.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -410,7 +430,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 4.0;
 				PRODUCT_BUNDLE_IDENTIFIER = Luckies.Lotto;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -430,14 +450,14 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3.0.1;
+				CURRENT_PROJECT_VERSION = 4.0.2;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"Lucky Numbers/Preview Content\"";
 				DEVELOPMENT_TEAM = R8362KYW8Q;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Lucky-Numbers-Info.plist";
-				INFOPLIST_KEY_CFBundleDisplayName = "Lucky Numbers";
+				INFOPLIST_KEY_CFBundleDisplayName = JackpotAI;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.entertainment";
 				INFOPLIST_KEY_NSUserTrackingUsageDescription = "This app uses tracking to provide personalized ads and improve user experience.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -449,8 +469,8 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.1.4;
-				"MARKETING_VERSION[sdk=iphoneos*]" = 3.0.1;
+				MARKETING_VERSION = 4.0;
+				"MARKETING_VERSION[sdk=iphoneos*]" = 4.0.2;
 				PRODUCT_BUNDLE_IDENTIFIER = Luckies.Lotto;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -475,7 +495,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		AAA9C44B292194E200918808 /* Build configuration list for PBXNativeTarget "Lucky Numbers" */ = {
+		AAA9C44B292194E200918808 /* Build configuration list for PBXNativeTarget "JackpotAI" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				AAA9C44C292194E200918808 /* Debug */,
@@ -495,6 +515,14 @@
 				minimumVersion = 12.0.0;
 			};
 		};
+		AA9A75512D888CAF0015F83A /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 11.10.0;
+			};
+		};
 		AAA9C44E292195CC00918808 /* XCRemoteSwiftPackageReference "lottie-ios" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/airbnb/lottie-ios.git";
@@ -510,6 +538,36 @@
 			isa = XCSwiftPackageProductDependency;
 			package = AA6299702D62A6CA0013D2B9 /* XCRemoteSwiftPackageReference "swift-package-manager-google-mobile-ads" */;
 			productName = GoogleMobileAds;
+		};
+		AA9A75522D888CAF0015F83A /* FirebaseAnalytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = AA9A75512D888CAF0015F83A /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalytics;
+		};
+		AA9A75542D888CAF0015F83A /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = AA9A75512D888CAF0015F83A /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+		AA9A75562D888CAF0015F83A /* FirebaseCrashlytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = AA9A75512D888CAF0015F83A /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseCrashlytics;
+		};
+		AA9A75582D888CAF0015F83A /* FirebaseMessaging */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = AA9A75512D888CAF0015F83A /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseMessaging;
+		};
+		AA9A755A2D888CAF0015F83A /* FirebasePerformance */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = AA9A75512D888CAF0015F83A /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebasePerformance;
+		};
+		AA9A755C2D888CAF0015F83A /* FirebaseRemoteConfig */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = AA9A75512D888CAF0015F83A /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseRemoteConfig;
 		};
 		AAA9C44F292195CC00918808 /* Lottie */ = {
 			isa = XCSwiftPackageProductDependency;
