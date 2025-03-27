@@ -182,6 +182,7 @@ struct MainView: View {
     @State private var isLoading: Bool = false
     @State private var animateBalls: Bool = false
     @State private var showSubscriptionAlert: Bool = false
+
     
     // MARK: - Layout Constants
         private struct LayoutConstants {
@@ -219,6 +220,13 @@ struct MainView: View {
             ZStack(alignment: .topTrailing) {
                 mainContent(geometry)
                 
+                if !IAPManager.shared.isSubscribed {
+                    TrialStatusBar()
+                        .frame(width: geometry.size.width - 20)
+                        .position(x: geometry.size.width / 2, y: geometry.size.height * 0.16)
+                        .zIndex(1)
+                }
+                
                 if showLoadBalls {
                     LoadBalls()
                         .transition(.opacity)
@@ -235,6 +243,7 @@ struct MainView: View {
                 if showAIModeOverlay {
                     aiModeBannerView
                         .offset(y: 120)
+                        .zIndex(2)
                 }
                 
                 if isLoading {
@@ -243,20 +252,24 @@ struct MainView: View {
             }
             .onAppear(perform: handleAppear)
         }
-        .alert(isPresented: $showSubscriptionAlert) {
-            subscriptionAlert
+        .sheet(isPresented: $showSubscriptionAlert) {
+            SubscriptionView()
+                .environmentObject(IAPManager.shared)
         }
+
     }
     
     // MARK: - View Components
     private func mainContent(_ geometry: GeometryProxy) -> some View {
         ZStack {
             HomeBackgroundView()
-            (useAIMode ? Color.black.opacity(0.3) : Color("lightBlue").opacity(0.3))
+            (useAIMode ? Color.black.opacity(0.0) : Color("lightBlue").opacity(0.3))
                 .ignoresSafeArea()
             
             CoinView(savedArray: $savedArray)
+                .conditionalModifier(useAIMode, modifier: { $0.glowing(with: Color("neonBlue")) })
             FavoritesView()
+                .conditionalModifier(useAIMode, modifier: { $0.glowing(with: Color("neonBlue")) })
             
             mainVerticalLayout(geometry)
         }
@@ -275,15 +288,17 @@ struct MainView: View {
                 .position(x: geometry.size.width / 2, y: geometry.size.height * 0.227)
             
             gamePickerView(geometry)
-                .padding(.horizontal, 80)
-                .position(x: geometry.size.width / 2, y: geometry.size.height * -0.33)
-                
+                .conditionalModifier(useAIMode, modifier: { $0.glowing(with: Color("neonBlue")) })
             
-            aiModeToggle
-                .position(x: geometry.size.width / 2, y: geometry.size.height * -0.04)
+            PremiumAISwitch(isAIMode: $useAIMode, onToggle: { newValue in
+                handleAIModeChange(newValue)
+            })                .position(x: geometry.size.width / 2, y: geometry.size.height * -0.04)
+            
+//            PremiumGenerateButton()
+//                .position(x: geometry.size.width / 2, y: geometry.size.height * -0.07)
             
             generateButton(geometry)
-                .position(x: geometry.size.width / 2, y: geometry.size.height * -0.09)
+                .position(x: geometry.size.width / 2, y: geometry.size.height * -0.07)
         }
     }
     
@@ -358,42 +373,10 @@ struct MainView: View {
     
     // Game picker
     private func gamePickerView(_ geometry: GeometryProxy) -> some View {
-        Menu {
-            ForEach([LotteryGame.powerball, .megaMillions, .euroMillions, .euroJackpot, .lottoMax], id: \.self) { game in
-                Button(action: {
-                    self.selectedGameRaw = game.rawValue
-                }) {
-                    Text(game.rawValue)
-                }
-            }
-        } label: {
-            HStack {
-                Image(systemName: "gamecontroller.fill")
-                    .foregroundColor(useAIMode ? Color("neonBlue") : Color.blue)
-                    .font(.system(size: 18))
-    
-                Text(selectedGame.rawValue)
-                    .font(.headline)
-                    .foregroundColor(.black)
-    
-                Spacer()
-    
-                Image(systemName: "chevron.down")
-                    .foregroundColor(.black)
-                    .font(.system(size: 14))
-            }
-            .padding(.vertical, 12)
-            .padding(.horizontal, 16)
-            .background(
-                RoundedRectangle(cornerRadius: 12)                    .stroke(Color("black"), lineWidth: 1)
-
-                    .fill(useAIMode ? Color.white.opacity(0.9) : Color.white.opacity(0.7))
-                    .shadow(color: Color("neonBlue").opacity(0.7), radius: 10, x: 0, y: 8)
-            )
-        }
-        .buttonStyle(PlainButtonStyle())
+        PremiumGamePicker(selectedGameRaw: $selectedGameRaw, useAIMode: useAIMode)
+            .padding(.horizontal, 70)
+            .position(x: geometry.size.width / 2, y: geometry.size.height * -0.33)
     }
-
     
     private var aiModeToggle: some View {
         Toggle("", isOn: $useAIMode)
@@ -407,30 +390,13 @@ struct MainView: View {
     }
     
     private func generateButton(_ geometry: GeometryProxy) -> some View {
-        Button(action: generateButtonPressed) {
-            ZStack {
-                Image("button")
-                    .resizable()
-                    .scaledToFit()
-                    .frame(height: 90)
-                    .cornerRadius(30)
-                    .shadow(color: Color("neonBlue").opacity(0.7), radius: 5, x: 1, y: 2)
-                    .shadow(color: Color("black").opacity(0.7), radius: 12, x: 3, y: 12)
-            }
-        }
-        .buttonStyle(PressableButtonStyle())
-        .disabled(isLoading)
-        .conditionalModifier(useAIMode, modifier: { $0.glowing(with: Color("neonBlue")) })
-        .frame(width: geometry.size.width * 0.8)
-        .opacity(isLoading ? 0.5 : 1)
-        .shadow(
-            color: useAIMode ? Color.blue.opacity(0.9) : Color.clear,
-            radius: useAIMode ? 5 : 0,
-            x: 0,
-            y: 0
+        PremiumGenerateButton(
+            action: generateButtonPressed,
+            isDisabled: isLoading,
+            isAIMode: useAIMode
         )
+        .frame(width: geometry.size.width * 0.8)
     }
-    
     // Explanation overlay
     private func explanationOverlay(geometry: GeometryProxy) -> some View {
         ZStack {
@@ -736,45 +702,49 @@ struct MainView: View {
         }
     }
     
-    private func generateAINumbers() {
-        //        guard subscriptionTracker.canUseAI else {
-        //            showSubscriptionPrompt()
-        //            isLoading = false
-        //            return
-        //        }
-        //
-        //        subscriptionTracker.incrementUsage()
-        self.isLoading = true
-        self.showExplanation = false
-        self.animateBalls = false
-
-        let previousDrawsKey = "previousAIDraws"
-        var previousDraws = UserDefaults.standard.array(forKey: previousDrawsKey) as? [[Int]] ?? []
-
-        // Limit exclusions to only the last 3 draws
-        let recentDrawsLimit = 3
-        let lastDrawnNumbers = Set(previousDraws.suffix(recentDrawsLimit).flatMap { $0 })
-
-        let promptType = getNextPromptType()
-        let prompt = buildAIPrompt(promptType: promptType, excludedNumbers: lastDrawnNumbers)
-
-        print("🎯 Selected Prompt Type: \(promptType)")
-
-        AIService.shared.fetchAIResponse(prompt: prompt) { response in
-            DispatchQueue.main.async {
-                guard let response = response else {
-                    self.explanation = "Failed to get a response."
-                    self.isLoading = false
+        private func generateAINumbers() {
+            // Check if user can use AI (subscribed, in trial, or has free uses)
+                guard subscriptionTracker.canUseAI else {
+                    showSubscriptionPrompt()
+                    isLoading = false
                     return
                 }
+                
+                // Increment usage count if not subscribed or in trial
+                subscriptionTracker.incrementUsage()
+            
+            self.isLoading = true
+            self.showExplanation = false
+            self.animateBalls = false
 
-                print("🔍 AI Raw Response:\n\(response)")
+            let previousDrawsKey = "previousAIDraws"
+            var previousDraws = UserDefaults.standard.array(forKey: previousDrawsKey) as? [[Int]] ?? []
 
-                self.processAIResponse(response)
+            // Limit exclusions to only the last 3 draws
+            let recentDrawsLimit = 3
+            let lastDrawnNumbers = Set(previousDraws.suffix(recentDrawsLimit).flatMap { $0 })
+
+            let promptType = getNextPromptType()
+            let prompt = buildAIPrompt(promptType: promptType, excludedNumbers: lastDrawnNumbers)
+
+            print("🎯 Selected Prompt Type: \(promptType)")
+
+            AIService.shared.fetchAIResponse(prompt: prompt) { result in
+                DispatchQueue.main.async {
+                    switch result {
+                    case .success(let response):
+                        print("🔍 AI Raw Response:\n\(response)")
+                        self.processAIResponse(response)
+                        
+                    case .failure(let error):
+                        print("❌ AI Error: \(error.localizedDescription)")
+                        self.explanation = "Error: \(error.localizedDescription)"
+                        self.isLoading = false
+                    }
+                }
             }
         }
-    }
-
+    
     private func getNextPromptType() -> String {
         // Statistical/analytical prompts (70% chance)
         let analyticalPrompts = [
@@ -1242,6 +1212,134 @@ class AIPromptRepository {
             """
         }
     )
+}
+
+struct PremiumGamePicker: View {
+    @Binding var selectedGameRaw: String
+    let useAIMode: Bool
+    
+    // Get the current game enum from the raw string
+    private var selectedGame: LotteryGame {
+        LotteryGame(rawValue: selectedGameRaw) ?? .powerball
+    }
+    
+    var body: some View {
+        Menu {
+            ForEach(LotteryGame.allCases, id: \.self) { game in
+                Button(action: {
+                    self.selectedGameRaw = game.rawValue
+                }) {
+                    HStack {
+                        Text(game.rawValue)
+                        
+                        Spacer()
+                        
+                        if selectedGame == game {
+                            Image(systemName: "checkmark")
+                                .foregroundColor(Color("neonBlue"))
+                        }
+                    }
+                }
+            }
+        } label: {
+            HStack {
+                // Game icon
+                ZStack {
+                    Circle()
+                        .fill(
+                            LinearGradient(
+                                gradient: Gradient(colors: [
+                                    Color("darkBlue").opacity(0.8),
+                                    Color("neonBlue").opacity(0.6)
+                                ]),
+                                startPoint: .topLeading,
+                                endPoint: .bottomTrailing
+                            )
+                        )
+                        .frame(width: 40, height: 40)
+                        .overlay(
+                            Circle()
+                                .stroke(Color("gold").opacity(0.7), lineWidth: 1.5)
+                        )
+                        .shadow(color: Color("neonBlue").opacity(0.4), radius: 4, x: 0, y: 2)
+                    
+                    Image(systemName: "gamecontroller.fill")
+                        .foregroundColor(.white)
+                        .font(.system(size: 16))
+                }
+                
+                // Game name
+                VStack(alignment: .leading, spacing: 2) {
+                    Text("GAME")
+                        .font(.system(size: 12, weight: .medium))
+                        .foregroundColor(Color("gold").opacity(0.8))
+                    
+                    Text(selectedGame.rawValue)
+                        .font(.system(size: 18, weight: .bold))
+                        .foregroundColor(.white)
+                }
+                .padding(.leading, 8)
+                
+                Spacer()
+                
+                // Dropdown indicator
+                ZStack {
+                    Circle()
+                        .fill(Color.black.opacity(0.3))
+                        .frame(width: 28, height: 28)
+                    
+                    Image(systemName: "chevron.down")
+                        .foregroundColor(Color("gold"))
+                        .font(.system(size: 12, weight: .bold))
+                }
+            }
+            .padding(.vertical, 12)
+            .padding(.horizontal, 16)
+            .background(
+                ZStack {
+                    // Main background
+                    RoundedRectangle(cornerRadius: 15)
+                        .fill(
+                            LinearGradient(
+                                gradient: Gradient(colors: [
+                                    Color.black.opacity(0.7),
+                                    Color("darkBlue").opacity(0.6)
+                                ]),
+                                startPoint: .top,
+                                endPoint: .bottom
+                            )
+                        )
+                    
+                    // Top highlight
+                    RoundedRectangle(cornerRadius: 15)
+                        .fill(Color.white.opacity(0.1))
+                        .frame(height: 15)
+                        .blur(radius: 3)
+                        .offset(y: -12)
+                        .mask(
+                            RoundedRectangle(cornerRadius: 15)
+                                .fill(Color.white)
+                        )
+                }
+            )
+            .overlay(
+                RoundedRectangle(cornerRadius: 15)
+                    .stroke(
+                        LinearGradient(
+                            gradient: Gradient(colors: [
+                                Color("gold").opacity(0.8),
+                                Color("gold").opacity(0.3)
+                            ]),
+                            startPoint: .topLeading,
+                            endPoint: .bottomTrailing
+                        ),
+                        lineWidth: 1.5
+                    )
+            )
+            .shadow(color: Color("neonBlue").opacity(0.3), radius: 8, x: 0, y: 4)
+        }
+        .buttonStyle(PlainButtonStyle())
+    }
 }
 
 struct MainView_Previews: PreviewProvider {

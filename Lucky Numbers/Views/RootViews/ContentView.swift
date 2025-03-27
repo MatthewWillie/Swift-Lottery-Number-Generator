@@ -12,6 +12,8 @@ struct ContentView: View {
     @State private var selectedTab: Tab = .home
     @State private var animationFinished = false
     @EnvironmentObject var iapManager: IAPManager
+    @EnvironmentObject var subscriptionTracker: SubscriptionTracker
+
     
     // MARK: - Body
     var body: some View {
@@ -25,6 +27,7 @@ struct ContentView: View {
                 
                 // Tab bar overlay
                 tabBarOverlay
+                        
             }
             .navigationBarBackButtonHidden(true)
             .toolbarBackground(Color.blue.opacity(0.8), for: .navigationBar)

@@ -52,6 +52,8 @@ struct AppFlowView: View {
    @StateObject private var controller = ViewControl()
    @State private var isShowingFreeTrialFullScreen = false
    @EnvironmentObject private var iapManager: IAPManager
+    @EnvironmentObject var subscriptionTracker: SubscriptionTracker
+
 
    // MARK: - Body
    var body: some View {
@@ -96,6 +98,7 @@ struct AppFlowView: View {
            dismissAction: { isShowingFreeTrialFullScreen = false }
        )
        .environmentObject(iapManager)
+       .environmentObject(subscriptionTracker)
    }
 }
 

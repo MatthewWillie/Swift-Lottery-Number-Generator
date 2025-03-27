@@ -25,9 +25,12 @@ extension View {
 
 struct SettingsView: View {
     // MARK: - Properties
+    @EnvironmentObject var subscriptionTracker: SubscriptionTracker
     @EnvironmentObject private var iapManager: IAPManager
     @State private var showInfoSheet = false
     @State private var showSubscriptionView = false
+    @State private var showDebugMenu = false
+
     
     // MARK: - Constants
     private struct Constants {
@@ -127,7 +130,8 @@ struct SettingsView: View {
     // MARK: - Subscription Section
     private var subscriptionSection: some View {
         VStack(spacing: Constants.spacing) {
-            sectionHeader(title: "Subscription", icon: "crown.fill")
+            sectionHeader(title: "Subscription", icon: "crown.fill")         .debugMenuTrigger(isPresented: $showDebugMenu)
+
             
             // Status Card
             VStack(spacing: 12) {
@@ -163,6 +167,11 @@ struct SettingsView: View {
                     .shadow(color: .black.opacity(0.1), radius: 10, x: 0, y: 5)
             )
         }
+        .fullScreenCover(isPresented: $showDebugMenu) {
+                    DebugMenuView()
+                        .environmentObject(iapManager)
+                        .environmentObject(subscriptionTracker)
+                }
         .padding(.top, 12)
     }
     
@@ -397,6 +406,8 @@ struct SettingsView_Previews: PreviewProvider {
         .previewDisplayName("Not Subscribed")
     }
 }
+
+
 
 // Safe Preview Helper
 class MockIAPManager: ObservableObject {

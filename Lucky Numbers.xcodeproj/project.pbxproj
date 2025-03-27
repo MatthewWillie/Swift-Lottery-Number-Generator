@@ -24,6 +24,8 @@
 		AA9A755B2D888CAF0015F83A /* FirebasePerformance in Frameworks */ = {isa = PBXBuildFile; productRef = AA9A755A2D888CAF0015F83A /* FirebasePerformance */; };
 		AA9A755D2D888CAF0015F83A /* FirebaseRemoteConfig in Frameworks */ = {isa = PBXBuildFile; productRef = AA9A755C2D888CAF0015F83A /* FirebaseRemoteConfig */; };
 		AA9A75DF2D89F56D0015F83A /* APIConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA9A75DE2D89F5660015F83A /* APIConfig.swift */; };
+		AA9A75E42D89FB6B0015F83A /* Secrets.plist in Resources */ = {isa = PBXBuildFile; fileRef = AA9A75E32D89FB6B0015F83A /* Secrets.plist */; };
+		AA9A75E62D8A09DC0015F83A /* SubscriptionTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA9A75E52D8A09D50015F83A /* SubscriptionTracker.swift */; };
 		AAA9C445292194E200918808 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AAA9C444292194E200918808 /* Assets.xcassets */; };
 		AAA9C448292194E200918808 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AAA9C447292194E200918808 /* Preview Assets.xcassets */; };
 		AAA9C450292195CC00918808 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = AAA9C44F292195CC00918808 /* Lottie */; };
@@ -45,6 +47,8 @@
 		AA98F4412940128900117465 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		AA9A753D2D87E70E0015F83A /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		AA9A75DE2D89F5660015F83A /* APIConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIConfig.swift; sourceTree = "<group>"; };
+		AA9A75E32D89FB6B0015F83A /* Secrets.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Secrets.plist; sourceTree = "<group>"; };
+		AA9A75E52D8A09D50015F83A /* SubscriptionTracker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionTracker.swift; sourceTree = "<group>"; };
 		AAA9C43D292194E100918808 /* JackpotAI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JackpotAI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AAA9C444292194E200918808 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AAA9C447292194E200918808 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -107,6 +111,7 @@
 		AA1E87D9294021DA0080C276 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				AA9A75E52D8A09D50015F83A /* SubscriptionTracker.swift */,
 				AA9A75DE2D89F5660015F83A /* APIConfig.swift */,
 				AA17372E2D74102F00E91BD0 /* RequestLimiter.swift */,
 				AAED22982921A8DC00AFE937 /* RandomGen.swift */,
@@ -160,6 +165,7 @@
 				AAA9C444292194E200918808 /* Assets.xcassets */,
 				AA9A753D2D87E70E0015F83A /* GoogleService-Info.plist */,
 				AACC0AE429358F560039AFF1 /* LuckyModel.xcdatamodeld */,
+				AA9A75E32D89FB6B0015F83A /* Secrets.plist */,
 			);
 			path = "Lucky Numbers";
 			sourceTree = "<group>";
@@ -257,6 +263,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AA9A75E42D89FB6B0015F83A /* Secrets.plist in Resources */,
 				AADCDEE9294BDC7E000573A6 /* load_balls.json in Resources */,
 				AA98F43A29396FA600117465 /* ball_drop.json in Resources */,
 				AAA9C448292194E200918808 /* Preview Assets.xcassets in Resources */,
@@ -279,6 +286,7 @@
 				AACC0AE629358F560039AFF1 /* LuckyModel.xcdatamodeld in Sources */,
 				AAED228C2921969100AFE937 /* BuildLottie.swift in Sources */,
 				AA17372F2D74103500E91BD0 /* RequestLimiter.swift in Sources */,
+				AA9A75E62D8A09DC0015F83A /* SubscriptionTracker.swift in Sources */,
 				AA98F4422940128900117465 /* Extensions.swift in Sources */,
 				AAED22992921A8DC00AFE937 /* RandomGen.swift in Sources */,
 				AA98F43C29400F0A00117465 /* Modifiers.swift in Sources */,
@@ -415,7 +423,7 @@
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				"ASSETCATALOG_COMPILER_OPTIMIZATION[sdk=iphonesimulator*]" = "";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 4.0.2;
+				CURRENT_PROJECT_VERSION = 5.0.1;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"Lucky Numbers/Preview Content\"";
 				DEVELOPMENT_TEAM = R8362KYW8Q;
@@ -424,6 +432,7 @@
 				INFOPLIST_FILE = "Lucky-Numbers-Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = JackpotAI;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.entertainment";
+				INFOPLIST_KEY_NSCameraUsageDescription = "This app needs camera access to scan lottery ticket barcodes";
 				INFOPLIST_KEY_NSUserTrackingUsageDescription = "This app uses tracking to provide personalized ads and improve user experience.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
@@ -454,7 +463,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 4.0.2;
+				CURRENT_PROJECT_VERSION = 5.0.1;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"Lucky Numbers/Preview Content\"";
 				DEVELOPMENT_TEAM = R8362KYW8Q;
@@ -463,6 +472,7 @@
 				INFOPLIST_FILE = "Lucky-Numbers-Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = JackpotAI;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.entertainment";
+				INFOPLIST_KEY_NSCameraUsageDescription = "This app needs camera access to scan lottery ticket barcodes";
 				INFOPLIST_KEY_NSUserTrackingUsageDescription = "This app uses tracking to provide personalized ads and improve user experience.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
@@ -474,7 +484,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 4.0;
-				"MARKETING_VERSION[sdk=iphoneos*]" = 4.0.2;
+				"MARKETING_VERSION[sdk=iphoneos*]" = 5.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = Luckies.Lotto;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";

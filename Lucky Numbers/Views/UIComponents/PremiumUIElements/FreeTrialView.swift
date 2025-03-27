@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Firebase
 
 struct FreeTrialView: View {
     var controller: ViewControl
@@ -13,6 +14,7 @@ struct FreeTrialView: View {
 
     @Environment(\.dismiss) private var dismiss
     @EnvironmentObject private var iapManager: IAPManager
+    @EnvironmentObject private var subscriptionTracker: SubscriptionTracker  // Added this line
     @State private var currentPage = 0
     
     // Sample trial features to showcase
@@ -56,8 +58,10 @@ struct FreeTrialView: View {
                 // Close button
                 HStack {
                     Spacer()
-                    Button(action: { dismiss();      controller.completeOnboarding()
- }) {
+                    Button(action: {
+                        dismiss()
+                        controller.completeOnboarding()
+                    }) {
                         Image(systemName: "xmark.circle.fill")
                             .font(.system(size: 28))
                             .foregroundColor(.white.opacity(0.6))
@@ -87,7 +91,6 @@ struct FreeTrialView: View {
                             // Start trial
                             startFreeTrial()
                             dismissAction()
-
                         }
                     }) {
                         Text(currentPage < features.count - 1 ? "Continue" : "Start Free Trial")
@@ -209,9 +212,14 @@ struct FreeTrialView: View {
     // MARK: - Actions
     
     private func startFreeTrial() {
-        // Implement your free trial logic here
-        // This would connect to your IAP system
-        iapManager.purchaseSubscription()
+        // Start the free trial period using the subscription tracker
+        subscriptionTracker.startFreeTrial()
+        
+        // No need to show purchase dialog right away if it's a truly free trial
+        // iapManager.purchaseSubscription()
+        
+        // Log analytics event
+        Analytics.logEvent("free_trial_started", parameters: nil)
     }
 }
 

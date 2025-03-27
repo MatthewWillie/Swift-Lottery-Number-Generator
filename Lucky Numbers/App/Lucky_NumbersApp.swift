@@ -119,7 +119,6 @@ struct Lucky_NumbersApp: App {
     @StateObject private var numberHold = NumberHold()
     @StateObject private var userSettings = UserSettings(drawMethod: .Weighted)
     @StateObject private var custom = CustomRandoms()
-//    @StateObject private var animationState = BallDropAnimationState()
     @StateObject private var iapManager = IAPManager.shared
     @StateObject private var subscriptionTracker = SubscriptionTracker()
 
@@ -131,9 +130,12 @@ struct Lucky_NumbersApp: App {
                         .environmentObject(numberHold)
                         .environmentObject(userSettings)
                         .environmentObject(custom)
-//                        .environmentObject(animationState)
                         .environmentObject(iapManager)
                         .environmentObject(subscriptionTracker)
+                        .onAppear {
+                            // Check trial status on app launch
+                            subscriptionTracker.checkTrialStatus()
+                        }
 
                     if launchScreenState.state != .finished {
                         LaunchScreenView()

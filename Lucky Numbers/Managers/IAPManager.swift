@@ -63,6 +63,7 @@ class IAPManager: NSObject, ObservableObject {
         // Log event
         Analytics.logEvent("subscription_products_requested", parameters: nil)
     }
+    
     // MARK: - Purchase Methods
     
     /// Initiates the subscription purchase flow
@@ -169,7 +170,7 @@ class IAPManager: NSObject, ObservableObject {
             AnalyticsParameterPrice: NSDecimalNumber(decimal: product.price as Decimal).doubleValue,
             AnalyticsParameterCurrency: product.priceLocale.currencyCode ?? "USD",
             AnalyticsParameterSuccess: true,
-            "subscription_period": "monthly" // Add more context about the subscription
+            "subscription_period": product.productIdentifier.contains("yearly") ? "yearly" : "monthly"
         ])
     }
     
@@ -322,47 +323,5 @@ extension IAPManager: SKProductsRequestDelegate, SKPaymentTransactionObserver {
         DispatchQueue.main.async {
             self.isPurchasing = false
         }
-    }
-}
-
-// MARK: - SubscriptionTracker
-
-class SubscriptionTracker: ObservableObject {
-    @AppStorage("aiUsageCount") private var aiUsages: Int = 0
-    private let maxFreeUses = 5
-    
-    /// Whether the user can use premium AI features
-    var canUseAI: Bool {
-        aiUsages < maxFreeUses || IAPManager.shared.isSubscribed
-    }
-    
-    /// Number of remaining free uses
-    var remainingFreeUses: Int {
-        max(0, maxFreeUses - aiUsages)
-    }
-    
-    /// Increment usage counter
-    func incrementUsage() {
-        guard !IAPManager.shared.isSubscribed else { return }
-        
-        aiUsages += 1
-        
-        // Track usage analytics
-        Analytics.logEvent("ai_feature_used", parameters: [
-            "remaining_uses": remainingFreeUses,
-            "subscription_status": IAPManager.shared.isSubscribed ? "subscribed" : "free"
-        ])
-        
-        // Track when user reaches limit
-        if remainingFreeUses == 0 {
-            Analytics.logEvent("free_usage_limit_reached", parameters: nil)
-        }
-    }
-    
-    /// Reset usage counter (e.g., for monthly reset)
-    func resetUsage() {
-        aiUsages = 0
-        
-        Analytics.logEvent("usage_limit_reset", parameters: nil)
     }
 }

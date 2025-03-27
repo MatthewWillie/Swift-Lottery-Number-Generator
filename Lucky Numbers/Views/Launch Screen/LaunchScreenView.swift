@@ -13,6 +13,7 @@ struct LaunchScreenView: View {
    @State private var firstAnimation = false
    @State private var secondAnimation = false
    @State private var startFadeoutAnimation = false
+
    
    // MARK: - Constants
    private let textProvider = TextProvider(fiveBalls: [0, 0, 0, 0, 0, 0])
@@ -30,6 +31,8 @@ struct LaunchScreenView: View {
        ZStack {
            // Background layer
            BackgroundView()
+               
+
            
            // Logo layer
            Image("JackpotLogo")

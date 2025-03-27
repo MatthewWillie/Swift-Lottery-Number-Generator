@@ -40,7 +40,7 @@ struct GlowingEffect: ViewModifier {
         content
             .shadow(color: glowColor.opacity(glow ? 0.9 : 0.3), radius: glow ? 20 : 10)
             .onAppear {
-                withAnimation(Animation.easeInOut(duration: 1.0).repeatForever(autoreverses: true)) {
+                withAnimation(Animation.easeInOut(duration: 2.0).repeatForever(autoreverses: true)) {
                     glow.toggle()
                 }
             }

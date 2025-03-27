@@ -14,17 +14,13 @@ class APIConfig {
     let openAIKey: String
     
     private init() {
-        // Load from environment or use a placeholder for development
-        #if DEBUG
         if let path = Bundle.main.path(forResource: "Secrets", ofType: "plist"),
            let keys = NSDictionary(contentsOfFile: path),
            let apiKey = keys["OpenAIKey"] as? String {
             self.openAIKey = apiKey
         } else {
-            self.openAIKey = "" // Empty string instead of hardcoded key
+            // Fallback API key, only used if plist missing
+            self.openAIKey = "sk-your-actual-key-here"
         }
-        #else
-        self.openAIKey = ProcessInfo.processInfo.environment["OPENAI_API_KEY"] ?? ""
-        #endif
     }
 }

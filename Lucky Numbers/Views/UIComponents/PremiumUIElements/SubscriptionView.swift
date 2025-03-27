@@ -10,6 +10,7 @@ import SwiftUI
 struct SubscriptionView: View {
     @Environment(\.dismiss) private var dismiss
     @EnvironmentObject private var iapManager: IAPManager
+    @EnvironmentObject private var subscriptionTracker: SubscriptionTracker
     @State private var selectedPlan: SubscriptionPlan = .monthly
     
     // Define subscription plans
@@ -98,6 +99,10 @@ struct SubscriptionView: View {
                         }
                         .padding(.bottom, adaptiveSpacing(defaultSpacing: 10, screenHeight: geometry.size.height))
                         
+                        // Free trial callout
+                        freeTrialCallout(screenWidth: geometry.size.width)
+                            .padding(.bottom, adaptiveSpacing(defaultSpacing: 15, screenHeight: geometry.size.height))
+                        
                         // Premium features
                         featuresSection(screenWidth: geometry.size.width, screenHeight: geometry.size.height)
                             .padding(.bottom, adaptiveSpacing(defaultSpacing: 15, screenHeight: geometry.size.height))
@@ -153,6 +158,50 @@ struct SubscriptionView: View {
     }
     
     // MARK: - UI Components
+    
+    private func freeTrialCallout(screenWidth: CGFloat) -> some View {
+        ZStack {
+            RoundedRectangle(cornerRadius: 16)
+                .fill(
+                    LinearGradient(
+                        gradient: Gradient(colors: [Color("neonBlue").opacity(0.15), Color("gold").opacity(0.15)]),
+                        startPoint: .leading,
+                        endPoint: .trailing
+                    )
+                )
+                .overlay(
+                    RoundedRectangle(cornerRadius: 16)
+                        .strokeBorder(
+                            LinearGradient(
+                                gradient: Gradient(colors: [Color("neonBlue").opacity(0.5), Color("gold").opacity(0.5)]),
+                                startPoint: .leading,
+                                endPoint: .trailing
+                            ),
+                            lineWidth: 1
+                        )
+                )
+            
+            HStack(spacing: 12) {
+                Image(systemName: "gift.fill")
+                    .font(.system(size: min(24, screenWidth * 0.055)))
+                    .foregroundColor(Color("gold"))
+                
+                VStack(alignment: .leading, spacing: 2) {
+                    Text("3-DAY FREE TRIAL")
+                        .font(.system(size: min(16, screenWidth * 0.045), weight: .bold))
+                        .foregroundColor(Color("gold"))
+                    
+                    Text("Try all premium features at no cost")
+                        .font(.system(size: min(12, screenWidth * 0.035)))
+                        .foregroundColor(.white.opacity(0.8))
+                }
+                
+                Spacer()
+            }
+            .padding(.horizontal, 16)
+            .padding(.vertical, 12)
+        }
+    }
     
     private func featuresSection(screenWidth: CGFloat, screenHeight: CGFloat) -> some View {
         VStack(spacing: adaptiveSpacing(defaultSpacing: 12, screenHeight: screenHeight)) {
@@ -218,6 +267,11 @@ struct SubscriptionView: View {
                     return
                 }
                 
+                // Start the free trial first if not already in one
+                if !subscriptionTracker.isInFreeTrial {
+                    subscriptionTracker.startFreeTrial()
+                }
+                
                 // Use the selected plan's product identifier
                 iapManager.purchaseSubscription(productIdentifier: selectedPlan.productIdentifier)
             }) {
@@ -228,7 +282,7 @@ struct SubscriptionView: View {
                             .padding(.trailing, 10)
                     }
                     
-                    Text(iapManager.isPurchasing ? "Processing..." : "Subscribe Now")
+                    Text(iapManager.isPurchasing ? "Processing..." : "Start Free Trial")
                         .font(.headline)
                         .foregroundColor(.white)
                 }
@@ -246,6 +300,14 @@ struct SubscriptionView: View {
             }
             .disabled(iapManager.isPurchasing)
             
+            // Free trial explanation
+            Text("No charge for 3 days. Auto-renews at \(selectedPlan.price)/\(selectedPlan.period) after trial ends. Cancel anytime.")
+                .font(.caption)
+                .multilineTextAlignment(.center)
+                .foregroundColor(.white.opacity(0.7))
+                .padding(.horizontal, 20)
+                .padding(.top, 4)
+            
             // Restore purchases
             Button(action: {
                 if !iapManager.isPurchasing {
@@ -257,6 +319,7 @@ struct SubscriptionView: View {
                     .foregroundColor(.white.opacity(0.8))
             }
             .disabled(iapManager.isPurchasing)
+            .padding(.top, 8)
         }
     }
     
@@ -420,5 +483,6 @@ struct SubscriptionView_Previews: PreviewProvider {
     static var previews: some View {
         SubscriptionView()
             .environmentObject(IAPManager.shared)
+            .environmentObject(SubscriptionTracker())
     }
 }

@@ -177,7 +177,7 @@ struct InfoSheetView: View {
                         Capsule()
                             .fill(
                                 LinearGradient(
-                                    gradient: Gradient(colors: [Color("neonBlue").opacity(0.7), Color("darkBlue").opacity(0.5)]),
+                                    gradient: Gradient(colors: [Color("darkBlue").opacity(0.9), Color("neonBlue").opacity(0.7)]),
                                     startPoint: .leading,
                                     endPoint: .trailing
                                 )
